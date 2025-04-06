@@ -1,73 +1,55 @@
-# Welcome to your Lovable project
+# FanBot: Your AI-Powered Sporting Event Assistant
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/7b3ed38b-e20b-4f2f-a86b-37f69d50edbe
+FanBot is an innovative AI-powered assistant designed to enhance the experience of attending sporting events. It provides real-time information, navigation assistance, and personalized recommendations to ensure fans have the best possible experience at the stadium.
 
-## How can I edit this code?
+## Key Features
 
-There are several ways of editing your application.
+- **Real-Time Updates**: Get live scores, player stats, and event highlights directly on your device.
+- **Stadium Navigation**: Easily find your way around the stadium with interactive maps and directions to your seat, food stalls, restrooms, and exits.
+- **Personalized Recommendations**: Receive tailored suggestions for food, merchandise, and activities based on your preferences.
+- **Emergency Assistance**: Access emergency contacts and first aid locations quickly in case of an emergency.
+- **Customizable Experience**: Upload your own stadium layout for a personalized navigation experience.
 
-**Use Lovable**
+## Technologies Used
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7b3ed38b-e20b-4f2f-a86b-37f69d50edbe) and start prompting.
+- Vite
+- TypeScript
+- React
+- Tailwind CSS
+- shadcn-ui
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+To get started with FanBot, follow these steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
 git clone <YOUR_GIT_URL>
 
 # Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+cd fanbot
 
 # Step 3: Install the necessary dependencies.
-npm i
+npm install
 
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+To deploy FanBot, you can use your preferred hosting service or platform. Ensure that all environment variables and configurations are set up correctly for production.
 
-**Use GitHub Codespaces**
+## Custom Domain
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+You can connect a custom domain to your FanBot project by configuring your DNS settings with your domain provider. Follow the hosting service's instructions for setting up a custom domain.
 
-## What technologies are used for this project?
+## Contributing
 
-This project is built with:
+We welcome contributions to FanBot! If you have ideas for new features or improvements, feel free to open an issue or submit a pull request.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## License
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/7b3ed38b-e20b-4f2f-a86b-37f69d50edbe) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is licensed under the MIT License - see the LICENSE file for details.
