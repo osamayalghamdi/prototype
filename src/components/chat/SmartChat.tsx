@@ -14,9 +14,22 @@ const SmartChat: React.FC = () => {
   const [chatHistory, setChatHistory] = useState<Array<{ type: "user" | "bot"; text: string }>>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
+  const [selectedStadium, setSelectedStadium] = useState<string | null>(null);
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  
+
+  const stadiumOptions = [
+    "King Abdullah Sports City (Jeddah)",
+    "Prince Abdullah Al-Faisal Stadium (Jeddah)",
+    "King Fahd International Stadium (Riyadh)",
+    "Al-Awwal Park (Riyadh)",
+    "Prince Mohamed bin Fahd Stadium (Dammam)",
+    "Prince Saud bin Jalawi Stadium (Khobar)",
+    "King Abdulaziz Stadium (Mecca)",
+    "I don't know",
+  ];
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -24,112 +37,113 @@ const SmartChat: React.FC = () => {
   useEffect(() => {
     scrollToBottom();
   }, [chatHistory]);
-  
+
   useEffect(() => {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
     }
   }, [isOpen]);
-  
-  const handleSendMessage = () => {
+
+  const handleSendMessage = async () => {
     if (!message.trim()) return;
-    
+  
     setShowWelcome(false);
     setChatHistory(prev => [...prev, { type: "user", text: message }]);
     setIsLoading(true);
-    
-    setTimeout(() => {
-      let response = chatResponses.fallback[language];
-      
-      if (message.toLowerCase().includes("exit") || message.toLowerCase().includes("مخرج")) {
-        response = chatResponses.exits[language];
-      } else if (message.toLowerCase().includes("food") || message.toLowerCase().includes("طعام")) {
-        response = chatResponses.food[language];
-      } else if (message.toLowerCase().includes("lost") || message.toLowerCase().includes("مفقود")) {
-        response = chatResponses.lostFound[language];
-      }
-      
-      setChatHistory(prev => [...prev, { type: "bot", text: response }]);
-      setMessage("");
-      setIsLoading(false);
-    }, 1200);
-  };
   
+    try {
+      const res = await fetch("http://localhost:5000/ask", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ question: message })
+      });
+  
+      const data = await res.json();
+      setChatHistory(prev => [...prev, { type: "bot", text: data.answer }]);
+    } catch (error) {
+      setChatHistory(prev => [...prev, { type: "bot", text: "حدث خطأ أثناء الاتصال بالمساعد." }]);
+    }
+  
+    setMessage("");
+    setIsLoading(false);
+  };
+
   const handleQuickAction = (actionId: string) => {
     setShowWelcome(false);
-    
+
     switch (actionId) {
       case "show-exits":
-        setChatHistory(prev => [...prev, 
+        setChatHistory(prev => [...prev,
           { type: "user", text: language === "en" ? "Where are the exits?" : "أين المخارج؟" },
           { type: "bot", text: chatResponses.exits[language] }
         ]);
         break;
       case "find-food":
-        setChatHistory(prev => [...prev, 
+        setChatHistory(prev => [...prev,
           { type: "user", text: language === "en" ? "Where can I find food?" : "أين يمكنني العثور على الطعام؟" },
           { type: "bot", text: chatResponses.food[language] }
         ]);
         break;
       case "lost-found":
-        setChatHistory(prev => [...prev, 
+        setChatHistory(prev => [...prev,
           { type: "user", text: language === "en" ? "I lost something" : "فقدت شيئًا" },
           { type: "bot", text: chatResponses.lostFound[language] }
         ]);
         break;
     }
   };
-  
-  // Bounce animation for floating button
+
   const buttonAnimation = {
     initial: { scale: 0, rotate: -10 },
-    animate: { 
-      scale: 1, 
+    animate: {
+      scale: 1,
       rotate: 0,
-      transition: { 
-        type: "spring", 
-        stiffness: 260, 
+      transition: {
+        type: "spring",
+        stiffness: 260,
         damping: 20,
-        duration: 0.6 
+        duration: 0.6
       }
     },
-    whileHover: { 
+    whileHover: {
       scale: 1.05,
       boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.5)",
       transition: { duration: 0.2 }
     },
     whileTap: { scale: 0.95 }
   };
-  
+
   const containerAnimation = {
     hidden: { opacity: 0, y: 20, scale: 0.95 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       scale: 1,
-      transition: { 
+      transition: {
         type: "spring",
         damping: 25,
         stiffness: 300
       }
     },
-    exit: { 
-      opacity: 0, 
-      y: 20, 
+    exit: {
+      opacity: 0,
+      y: 20,
       scale: 0.95,
       transition: { duration: 0.2 }
     }
   };
-  
+
   const messageAnimation = {
     hidden: { opacity: 0, y: 10 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.2 }
     }
   };
-  
+
   if (!isOpen) {
     return (
       <motion.button
@@ -146,7 +160,7 @@ const SmartChat: React.FC = () => {
       </motion.button>
     );
   }
-  
+
   return (
     <AnimatePresence>
       <motion.div
@@ -169,71 +183,67 @@ const SmartChat: React.FC = () => {
                 {language === "en" ? "FanBot Assistant" : "مساعد فان بوت"}
               </h3>
               <p className="text-xs text-white/80">
-                {language === "en" ? "Your stadium guide" : "دليلك في الملعب"}
+                {selectedStadium
+                  ? language === "en"
+                    ? `Your stadium guide for "${selectedStadium}"`
+                    : `دليلك في ملعب "${selectedStadium}"`
+                  : language === "en"
+                    ? "Your stadium guide"
+                    : "دليلك في الملعب"}
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <motion.button 
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsOpen(false)}
-              className="hover:bg-white/20 rounded-full p-2 transition-colors"
-              aria-label={language === "en" ? "Close chat" : "إغلاق الدردشة"}
-            >
-              <X size={18} />
-            </motion.button>
-          </div>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsOpen(false)}
+            className="hover:bg-white/20 rounded-full p-2 transition-colors"
+            aria-label={language === "en" ? "Close chat" : "إغلاق الدردشة"}
+          >
+            <X size={18} />
+          </motion.button>
         </div>
-        
+
         <div className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[50vh]">
-          {showWelcome && chatHistory.length === 0 ? (
+          {showWelcome && chatHistory.length === 0 && !selectedStadium ? (
             <div className="space-y-4">
               <div className="flex items-start">
                 <Avatar className="mr-2 mt-1">
                   <Sparkles className="h-5 w-5 text-primary" />
                 </Avatar>
-                <motion.div 
+                <motion.div
                   variants={messageAnimation}
                   initial="hidden"
                   animate="visible"
                   className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-lg p-3 max-w-[80%]"
                 >
-                  <p className="text-gray-700">
-                    {language === "en" 
-                      ? "Hi there! I'm your stadium assistant. How can I help you today?" 
-                      : "مرحبًا! أنا مساعدك في الملعب. كيف يمكنني مساعدتك اليوم؟"}
+                  <p className="text-gray-700 font-medium">
+                    {language === "en"
+                      ? "Which stadium are you at or asking about?"
+                      : "في أي ملعب أنت أو تريد السؤال عنه؟"}
                   </p>
-                </motion.div>
-              </div>
-              
-              <div className="ml-12">
-                <motion.div 
-                  variants={messageAnimation}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{ delay: 0.3 }}
-                  className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-lg p-3 max-w-[80%]"
-                >
-                  <p className="text-gray-700 text-sm mb-2 flex items-center">
-                    <Info size={14} className="inline mr-1 text-blue-500" />
-                    {language === "en" 
-                      ? "Here are some things I can help with:" 
-                      : "إليك بعض الأمور التي يمكنني المساعدة فيها:"}
-                  </p>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex items-center">
-                      <Map size={14} className="inline mr-2 text-blue-500" />
-                      {language === "en" ? "Stadium navigation" : "التنقل في الملعب"}
-                    </li>
-                    <li className="flex items-center">
-                      <HelpCircle size={14} className="inline mr-2 text-blue-500" />
-                      {language === "en" ? "Assistance with facilities" : "المساعدة في المرافق"}
-                    </li>
-                    <li className="flex items-center">
-                      <ArrowRight size={14} className="inline mr-2 text-blue-500" />
-                      {language === "en" ? "Emergency information" : "معلومات الطوارئ"}
-                    </li>
+                  <ul className="mt-3 space-y-2">
+                    {stadiumOptions.map((stadium, index) => (
+                      <li key={index}>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full justify-start border-blue-200 hover:bg-blue-50"
+                          onClick={() => {
+                            setSelectedStadium(stadium);
+                            setChatHistory(prev => [...prev,
+                              { type: "user", text: stadium },
+                              { type: "bot", text: language === "en"
+                                ? `Got it! You're asking about: ${stadium}`
+                                : `تم! أنت تسأل عن: ${stadium}` }
+                            ]);
+                            setShowWelcome(false);
+                          }}
+                        >
+                          {stadium}
+                        </Button>
+                      </li>
+                    ))}
                   </ul>
                 </motion.div>
               </div>
@@ -254,8 +264,8 @@ const SmartChat: React.FC = () => {
                 )}
                 <div
                   className={`rounded-lg p-3 max-w-[80%] ${
-                    chat.type === "user" 
-                      ? "bg-blue-600 text-white" 
+                    chat.type === "user"
+                      ? "bg-blue-600 text-white"
                       : "bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 text-gray-700"
                   }`}
                 >
@@ -264,7 +274,7 @@ const SmartChat: React.FC = () => {
               </motion.div>
             ))
           )}
-          
+
           {isLoading && (
             <div className="flex items-center">
               <Avatar className="mr-2">
@@ -279,7 +289,7 @@ const SmartChat: React.FC = () => {
           )}
           <div ref={messagesEndRef} />
         </div>
-        
+
         <div className="p-4 border-t border-gray-200">
           <div className="flex flex-wrap gap-1.5 overflow-x-auto pb-3 mb-3">
             {quickActions.map(action => (
@@ -294,7 +304,7 @@ const SmartChat: React.FC = () => {
               </Button>
             ))}
           </div>
-          
+
           <div className="flex gap-2">
             <Input
               ref={inputRef}
@@ -306,7 +316,7 @@ const SmartChat: React.FC = () => {
                 if (e.key === "Enter") handleSendMessage();
               }}
             />
-            <Button 
+            <Button
               variant="ghost"
               size="icon"
               className="flex-shrink-0 text-gray-500 hover:text-blue-500 hover:bg-blue-50"
@@ -316,7 +326,7 @@ const SmartChat: React.FC = () => {
             </Button>
             <Button
               variant="default"
-              size="icon" 
+              size="icon"
               className="flex-shrink-0 bg-gradient-to-r from-blue-600 to-indigo-600 hover:opacity-90"
               onClick={handleSendMessage}
               disabled={!message.trim() || isLoading}
