@@ -45,29 +45,53 @@ const SmartChat: React.FC = () => {
   }, [isOpen]);
 
   const handleSendMessage = async () => {
-    if (!message.trim()) return;
-  
-    setShowWelcome(false);
-    setChatHistory(prev => [...prev, { type: "user", text: message }]);
-    setIsLoading(true);
-  
+    if (!message.trim()) return; // Don't send empty messages
+
+    setShowWelcome(false); // Hide the initial welcome/stadium selection
+    setChatHistory(prev => [...prev, { type: "user", text: message }]); // Add user's message to UI immediately
+    setIsLoading(true); // Show loading indicator
+
+    // Add placeholder for streaming bot response
+    const botIndex = chatHistory.length + 1;
+    setChatHistory(prev => [...prev, { type: 'bot', text: '' }]);
+    setMessage('');
     try {
-      const res = await fetch("http://localhost:5000/ask", {
-        method: "POST",
+      // Dify workflow endpoint
+      const apiKey = import.meta.env.VITE_DIFY_API_KEY;
+      const workflowId = import.meta.env.VITE_DIFY_WORKFLOW_ID;
+      const baseUrl = import.meta.env.VITE_DIFY_BASE_URL;
+      const response = await fetch(`${baseUrl}/api/openapi/v1/workflows/${workflowId}/execute`, {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+          'Accept': 'text/event-stream',
         },
-        body: JSON.stringify({ question: message })
+        body: JSON.stringify({ input: { question: message } }),
       });
-  
-      const data = await res.json();
-      setChatHistory(prev => [...prev, { type: "bot", text: data.answer }]);
-    } catch (error) {
-      setChatHistory(prev => [...prev, { type: "bot", text: "حدث خطأ أثناء الاتصال بالمساعد." }]);
+      if (!response.ok || !response.body) throw new Error('Network response was not ok');
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder('utf-8');
+      let done = false;
+      while (!done) {
+        const { value, done: doneReading } = await reader.read();
+        done = doneReading;
+        if (value) {
+          const chunk = decoder.decode(value);
+          // update last bot message content
+          setChatHistory(prev => {
+            const updated = [...prev];
+            const msg = updated[botIndex];
+            msg.text += chunk;
+            return updated;
+          });
+        }
+      }
+    } catch (err) {
+      setChatHistory(prev => [...prev, { type: 'bot', text: language === 'en' ? 'Error contacting assistant.' : 'حدث خطأ أثناء الاتصال بالمساعد.' }]);
+    } finally {
+      setIsLoading(false);
     }
-  
-    setMessage("");
-    setIsLoading(false);
   };
 
   const handleQuickAction = (actionId: string) => {

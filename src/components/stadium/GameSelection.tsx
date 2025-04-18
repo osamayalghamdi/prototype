@@ -1,15 +1,18 @@
-
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { useAppContext } from "../../contexts/AppContext";
 
-interface Game {
+export interface Game {
   id: string;
   homeTeam: string;
   awayTeam: string;
   date: string;
   time: string;
   stadium: string;
+}
+
+interface Props {
+  onSelectGame?: (game: Game) => void;
 }
 
 const upcomingGames: Game[] = [
@@ -39,7 +42,7 @@ const upcomingGames: Game[] = [
   }
 ];
 
-const GameSelection: React.FC = () => {
+const GameSelection: React.FC<Props> = ({ onSelectGame }) => {
   const { language } = useAppContext();
   
   const formatDate = (dateStr: string) => {
@@ -61,7 +64,8 @@ const GameSelection: React.FC = () => {
         {upcomingGames.map((game) => (
           <Card 
             key={game.id}
-            className="overflow-hidden transition-all hover:shadow-lg border-l-4 border-l-stadium-primary hover:scale-[1.02]"
+            onClick={() => onSelectGame?.(game)}
+            className="cursor-pointer overflow-hidden transition-all hover:shadow-lg border-l-4 border-l-stadium-primary hover:scale-[1.02]"
           >
             <CardHeader className="bg-gradient-to-r from-stadium-primary/10 to-transparent">
               <CardTitle className="flex justify-between items-center">

@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -6,7 +5,11 @@ import { Button } from "../ui/button";
 import { useAppContext } from "../../contexts/AppContext";
 import { MapPin } from "lucide-react";
 
-const SeatLocator: React.FC = () => {
+interface SeatLocatorProps {
+  onLocate: (info: { section: string; row: string; seatNumber: string }) => void;
+}
+
+const SeatLocator: React.FC<SeatLocatorProps> = ({ onLocate }) => {
   const { language } = useAppContext();
   const [section, setSection] = useState("");
   const [row, setRow] = useState("");
@@ -14,8 +17,7 @@ const SeatLocator: React.FC = () => {
   
   const handleLocate = (e: React.FormEvent) => {
     e.preventDefault();
-    // In the future, this would update the map and provide navigation
-    console.log("Locate seat:", { section, row, seatNumber });
+    onLocate({ section, row, seatNumber });
   };
   
   return (
@@ -23,7 +25,7 @@ const SeatLocator: React.FC = () => {
       <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
         <h2 className="text-xl font-bold mb-4 text-center flex items-center justify-center">
           <MapPin className="mr-2 text-stadium-primary" />
-          {language === "en" ? "Find Your Seat" : "ابحث عن مقعدك"}
+          {language === "en" ? "Select Your Seat" : "ابحث عن مقعدك"}
         </h2>
         
         <form onSubmit={handleLocate} className="space-y-4">
@@ -72,6 +74,16 @@ const SeatLocator: React.FC = () => {
           >
             {language === "en" ? "Locate My Seat" : "حدد مقعدي"}
           </Button>
+          {/* Optional skip seat selection */}
+          <div className="text-center mt-2">
+            <button
+              type="button"
+              onClick={() => onLocate({ section: "", row: "", seatNumber: "" })}
+              className="text-sm text-gray-500 underline hover:text-gray-700"
+            >
+              {language === "en" ? "Skip seat selection" : "تخطي اختيار المقعد"}
+            </button>
+          </div>
         </form>
       </div>
     </section>

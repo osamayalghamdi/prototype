@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import EmergencyOverlay from "../components/emergency/EmergencyOverlay";
 import EmergencyFAB from "../components/emergency/EmergencyFAB";
 import Header from "../components/layout/Header";
-import StadiumMap from "../components/map/StadiumMap";
 import SmartChat from "../components/chat/SmartChat";
-import WelcomeBanner from "../components/stadium/WelcomeBanner";
 import GameSelection from "../components/stadium/GameSelection";
 import SeatLocator from "../components/stadium/SeatLocator";
 import SaudiPatternBackground from "../components/stadium/SaudiPatternBackground";
@@ -22,8 +20,16 @@ import {
   Utensils,
   DoorOpen
 } from "lucide-react";
+import { Game } from "../components/stadium/GameSelection";
 
-const StadiumNavigation: React.FC = () => {
+// Map stadium names to public image URLs
+const stadiumImages: Record<string, string> = {
+  "King Fahd Stadium": "/public/123.jpg",
+  "King Abdullah Sports City": "/images/king-abdullah-sports-city.jpg",
+  "Prince Faisal bin Fahd Stadium": "/images/prince-faisal-bin-fahd-stadium.jpg",
+};
+
+const StadiumNavigation: React.FC<{ selectedGame: Game; seatInfo: { section: string; row: string; seatNumber: string } }> = ({ selectedGame, seatInfo }) => {
   const { language } = useAppContext();
   const [activeTab, setActiveTab] = useState("map");
   
@@ -58,7 +64,24 @@ const StadiumNavigation: React.FC = () => {
         initial="hidden"
         animate="show"
       >
-        <WelcomeBanner />
+        {/* Display selected game and optional seat info */}
+        <div className="bg-white rounded-lg p-4 shadow-md text-center mx-auto max-w-3xl">
+          <h1 className="text-2xl font-bold">
+            {selectedGame.homeTeam} vs {selectedGame.awayTeam}
+          </h1>
+          <p className="text-sm">
+            {new Intl.DateTimeFormat(language === "en" ? "en-US" : "ar-SA", {
+              year: "numeric", month: "long", day: "numeric"
+            }).format(new Date(selectedGame.date))} {language === "en" ? 'at' : 'في'} {selectedGame.time}
+          </p>
+          {seatInfo.section && (
+            <p className="text-sm mt-1">
+              {language === "en"
+                ? `Section ${seatInfo.section}, Row ${seatInfo.row}, Seat ${seatInfo.seatNumber}`
+                : `القسم ${seatInfo.section}، الصف ${seatInfo.row}، المقعد ${seatInfo.seatNumber}`}
+            </p>
+          )}
+        </div>
         
         <div className="grid lg:grid-cols-3 gap-6 items-start">
           {/* Main content - 2/3 width on large screens */}
@@ -96,15 +119,38 @@ const StadiumNavigation: React.FC = () => {
                 </div>
                 
                 <TabsContent value="map" className="mt-0">
-                  <StadiumMap />
+                  {/* Show stadium image instead of interactive map */}
+                  <img
+                    src={stadiumImages[selectedGame.stadium] || "/images/default-stadium.jpg"}
+                    alt={selectedGame.stadium}
+                    className="w-full h-auto rounded-lg shadow-lg"
+                  />
                 </TabsContent>
                 
                 <TabsContent value="seat" className="mt-0">
-                  <SeatLocator />
+                  {/* Display located seat info */}
+                  <div className="p-4 bg-white rounded-lg shadow-sm text-center">
+                    {language === "en"
+                      ? `Section ${seatInfo.section}, Row ${seatInfo.row}, Seat ${seatInfo.seatNumber}`
+                      : `القسم ${seatInfo.section}، الصف ${seatInfo.row}، المقعد ${seatInfo.seatNumber}`}
+                  </div>
                 </TabsContent>
                 
                 <TabsContent value="games" className="mt-0">
-                  <GameSelection />
+                  {/* Display selected game info */}
+                  <div className="p-4 bg-white rounded-lg shadow-sm">
+                    <h3 className="text-lg font-semibold">
+                      {selectedGame.homeTeam} vs {selectedGame.awayTeam}
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      {new Intl.DateTimeFormat(language === "en" ? "en-US" : "ar-SA", {
+                        year: "numeric", month: "long", day: "numeric"
+                      }).format(new Date(selectedGame.date))} {language === "en" ? 'at' : 'في'} {selectedGame.time}
+                    </p>
+                    <p className="mt-2 text-sm text-gray-700">
+                      {language === "en" ? 'Stadium:' : 'الملعب:'} {selectedGame.stadium}
+                    </p>
+                  </div>
                 </TabsContent>
               </Tabs>
             </motion.div>
@@ -274,15 +320,42 @@ const StadiumNavigation: React.FC = () => {
 };
 
 const Index: React.FC = () => {
+  const [selectedGame, setSelectedGame] = useState<Game | null>(null);
+  const [seatInfo, setSeatInfo] = useState<{ section: string; row: string; seatNumber: string }>({
+    section: "",
+    row: "",
+    seatNumber: ""
+  });
+  const [seatDone, setSeatDone] = useState(false);
+
+  const handleGameSelect = (game: Game) => {
+    setSelectedGame(game);
+  };
+
+  const handleSeatLocate = (info: { section: string; row: string; seatNumber: string }) => {
+    setSeatInfo(info);
+    setSeatDone(true);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
       <main className="flex-1">
-        <StadiumNavigation />
+        {!selectedGame ? (
+          <GameSelection onSelectGame={handleGameSelect} />
+        ) : !seatDone ? (
+          <SeatLocator onLocate={handleSeatLocate} />
+        ) : (
+          <StadiumNavigation selectedGame={selectedGame} seatInfo={seatInfo} />
+        )}
       </main>
-      <EmergencyOverlay />
-      <EmergencyFAB />
-      <SmartChat />
+      {seatDone && (
+        <>
+          <EmergencyOverlay />
+          <EmergencyFAB />
+          <SmartChat />
+        </>
+      )}
     </div>
   );
 };
