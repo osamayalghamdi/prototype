@@ -176,7 +176,7 @@ const SmartChat: React.FC = () => {
         animate="animate"
         whileHover="whileHover"
         whileTap="whileTap"
-        className="fixed bottom-6 left-6 z-30 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full p-4 shadow-lg"
+        className="fixed bottom-6 left-6 z-30 bg-gradient-to-r from-stadium-primary to-stadium-primary/80 text-white rounded-full p-4 shadow-lg"
         onClick={() => setIsOpen(true)}
         aria-label={language === "en" ? "Open chat assistant" : "فتح مساعد الدردشة"}
       >
@@ -192,9 +192,9 @@ const SmartChat: React.FC = () => {
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="fixed bottom-6 left-6 z-30 bg-white rounded-xl shadow-2xl w-[90%] max-w-md max-h-[80vh] flex flex-col border border-gray-200 overflow-hidden"
+        className="fixed bottom-6 left-6 z-30 bg-card rounded-xl shadow-2xl w-[90%] max-w-md max-h-[80vh] flex flex-col border border-border overflow-hidden"
       >
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-4 rounded-t-xl flex justify-between items-center">
+        <div className="bg-stadium-primary dark:bg-stadium-secondary text-white p-4 rounded-t-xl flex justify-between items-center">
           <div className="flex items-center space-x-3">
             <div className="relative">
               <Avatar>
@@ -239,7 +239,7 @@ const SmartChat: React.FC = () => {
                   variants={messageAnimation}
                   initial="hidden"
                   animate="visible"
-                  className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-lg p-3 max-w-[80%]"
+                  className="bg-card border border-border rounded-lg p-3 max-w-[80%]"
                 >
                   <p className="text-gray-700 font-medium">
                     {language === "en"
@@ -252,7 +252,7 @@ const SmartChat: React.FC = () => {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="w-full justify-start border-blue-200 hover:bg-blue-50"
+                          className="w-full justify-start"
                           onClick={() => {
                             setSelectedStadium(stadium);
                             setChatHistory(prev => [...prev,
@@ -289,8 +289,8 @@ const SmartChat: React.FC = () => {
                 <div
                   className={`rounded-lg p-3 max-w-[80%] ${
                     chat.type === "user"
-                      ? "bg-blue-600 text-white"
-                      : "bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 text-gray-700"
+                      ? "bg-stadium-primary text-white"
+                      : "bg-card border border-border text-foreground dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
                   }`}
                 >
                   {chat.text}
@@ -304,10 +304,10 @@ const SmartChat: React.FC = () => {
               <Avatar className="mr-2">
                 <Sparkles className="h-5 w-5 text-primary" />
               </Avatar>
-              <div className="flex space-x-2 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
-                <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+              <div className="flex space-x-2 p-3 bg-card rounded-lg border border-border dark:bg-gray-800 dark:border-gray-700">
+                <div className="w-2 h-2 bg-stadium-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                <div className="w-2 h-2 bg-stadium-primary/80 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                <div className="w-2 h-2 bg-stadium-primary/60 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
               </div>
             </div>
           )}
@@ -321,7 +321,7 @@ const SmartChat: React.FC = () => {
                 key={action.id}
                 variant="outline"
                 size="sm"
-                className="whitespace-nowrap border-blue-200 hover:bg-blue-50 hover:text-blue-700 transition-colors text-xs"
+                className="whitespace-nowrap text-xs border-stadium-primary text-stadium-primary hover:bg-stadium-primary/10 hover:text-stadium-primary/80"
                 onClick={() => handleQuickAction(action.id)}
               >
                 {action.label[language]}
@@ -335,7 +335,7 @@ const SmartChat: React.FC = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder={language === "en" ? "Type your question..." : "اكتب سؤالك..."}
-              className="flex-1 bg-gray-50 border-gray-200 focus:ring-blue-500"
+              className="flex-1 bg-background border-input text-foreground placeholder:text-muted-foreground focus:ring-stadium-primary focus:ring-offset-background"
               onKeyPress={(e) => {
                 if (e.key === "Enter") handleSendMessage();
               }}
@@ -343,7 +343,7 @@ const SmartChat: React.FC = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="flex-shrink-0 text-gray-500 hover:text-blue-500 hover:bg-blue-50"
+              className="flex-shrink-0 text-stadium-primary hover:text-stadium-primary/80 hover:bg-stadium-primary/10"
               aria-label={language === "en" ? "Voice input" : "إدخال صوتي"}
             >
               <Mic size={18} />
@@ -351,7 +351,7 @@ const SmartChat: React.FC = () => {
             <Button
               variant="default"
               size="icon"
-              className="flex-shrink-0 bg-gradient-to-r from-blue-600 to-indigo-600 hover:opacity-90"
+              className="flex-shrink-0 bg-gradient-to-r from-stadium-primary to-stadium-primary/80 hover:opacity-90"
               onClick={handleSendMessage}
               disabled={!message.trim() || isLoading}
               aria-label={language === "en" ? "Send message" : "إرسال رسالة"}

@@ -1,8 +1,7 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
-	darkMode: ["class"],
+	darkMode: "class",
 	content: [
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
@@ -25,7 +24,8 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				'stadium-primary': '#1e3a8a', // Deep trust blue
+				'stadium-primary': '#f04434', // Updated to new red theme
+				'stadium-secondary': '#FFFFFF', // White accent
 				'danger-zone': '#dc2626', // ISO-compliant emergency red
 				'crowd-low': '#34d39980',
 				'crowd-high': '#f59e0b80',

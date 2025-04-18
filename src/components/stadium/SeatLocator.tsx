@@ -21,14 +21,17 @@ const SeatLocator: React.FC<SeatLocatorProps> = ({ onLocate }) => {
   };
   
   return (
-    <section className="my-8 max-w-md mx-auto">
-      <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-        <h2 className="text-xl font-bold mb-4 text-center flex items-center justify-center">
-          <MapPin className="mr-2 text-stadium-primary" />
-          {language === "en" ? "Select Your Seat" : "ابحث عن مقعدك"}
-        </h2>
+    <section className="my-8 max-w-md mx-auto px-4">
+      <div className="overflow-hidden rounded-xl shadow-lg border border-border bg-card">
+        {/* Gradient header */}
+        <div className="bg-gradient-to-r from-stadium-primary to-stadium-primary/50 p-4">
+          <h2 className="text-lg font-semibold text-white text-center flex items-center justify-center">
+            <MapPin className="mr-2" />
+            {language === "en" ? "Find Your Seat" : "ابحث عن مقعدك"}
+          </h2>
+        </div>
         
-        <form onSubmit={handleLocate} className="space-y-4">
+        <form onSubmit={handleLocate} className="p-6 space-y-5">
           <div className="space-y-2">
             <Label htmlFor="section">
               {language === "en" ? "Section" : "القسم"}
@@ -38,7 +41,7 @@ const SeatLocator: React.FC<SeatLocatorProps> = ({ onLocate }) => {
               placeholder={language === "en" ? "e.g. A, B, C" : "مثال: أ، ب، ج"}
               value={section}
               onChange={(e) => setSection(e.target.value)}
-              className="border-stadium-primary/30 focus-visible:ring-stadium-primary"
+              className="border-stadium-primary/40 focus-visible:ring-2 focus-visible:ring-stadium-primary focus:outline-none"
             />
           </div>
           
@@ -51,7 +54,7 @@ const SeatLocator: React.FC<SeatLocatorProps> = ({ onLocate }) => {
               placeholder={language === "en" ? "e.g. 1, 2, 3" : "مثال: ١، ٢، ٣"}
               value={row}
               onChange={(e) => setRow(e.target.value)}
-              className="border-stadium-primary/30 focus-visible:ring-stadium-primary"
+              className="border-stadium-primary/40 focus-visible:ring-2 focus-visible:ring-stadium-primary focus:outline-none"
             />
           </div>
           
@@ -64,22 +67,22 @@ const SeatLocator: React.FC<SeatLocatorProps> = ({ onLocate }) => {
               placeholder={language === "en" ? "e.g. 15" : "مثال: ١٥"}
               value={seatNumber}
               onChange={(e) => setSeatNumber(e.target.value)}
-              className="border-stadium-primary/30 focus-visible:ring-stadium-primary"
+              className="border-stadium-primary/40 focus-visible:ring-2 focus-visible:ring-stadium-primary focus:outline-none"
             />
           </div>
           
           <Button 
-            type="submit" 
-            className="w-full bg-stadium-primary hover:bg-stadium-primary/90"
+            type="submit"
+            className="w-full bg-gradient-to-r from-stadium-primary to-stadium-primary/60 hover:from-stadium-primary/80 hover:to-stadium-primary/80 text-white font-medium rounded-lg py-2 transition"
           >
             {language === "en" ? "Locate My Seat" : "حدد مقعدي"}
           </Button>
           {/* Optional skip seat selection */}
-          <div className="text-center mt-2">
+          <div className="text-center mt-3">
             <button
               type="button"
               onClick={() => onLocate({ section: "", row: "", seatNumber: "" })}
-              className="text-sm text-gray-500 underline hover:text-gray-700"
+              className="text-sm text-stadium-primary hover:text-stadium-primary/80 underline"
             >
               {language === "en" ? "Skip seat selection" : "تخطي اختيار المقعد"}
             </button>

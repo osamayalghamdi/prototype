@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, ReactNode } from "react";
 
 type EmergencyType = "medical" | "security" | "fire" | null;
@@ -14,6 +13,8 @@ interface AppContextType {
   setCrowdDensity: (density: CrowdDensity) => void;
   isEmergencyMode: boolean;
   setIsEmergencyMode: (isEmergency: boolean) => void;
+  theme: "light" | "dark";
+  toggleTheme: () => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -35,12 +36,32 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [emergencyType, setEmergencyType] = useState<EmergencyType>(null);
   const [isEmergencyMode, setIsEmergencyMode] = useState(false);
   const [crowdDensity, setCrowdDensity] = useState<CrowdDensity>("low");
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") return saved;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+    return "light";
+  });
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const next = prev === "light" ? "dark" : "light";
+      localStorage.setItem("theme", next);
+      return next;
+    });
+  };
 
   React.useEffect(() => {
     // Set the HTML dir attribute based on the language
     document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = language;
-  }, [language]);
+    // Apply theme class
+    if (theme === "dark") document.documentElement.classList.add("dark");
+    else document.documentElement.classList.remove("dark");
+  }, [language, theme]);
 
   const value = {
     language,
@@ -51,6 +72,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     setCrowdDensity,
     isEmergencyMode,
     setIsEmergencyMode,
+    theme,
+    toggleTheme,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

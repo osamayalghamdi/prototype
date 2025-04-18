@@ -55,27 +55,27 @@ const GameSelection: React.FC<Props> = ({ onSelectGame }) => {
   };
   
   return (
-    <section className="my-8">
+    <section className="my-8 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
       <h2 className="text-2xl font-bold mb-4 text-center">
         {language === "en" ? "Select Your Game" : "اختر المباراة"}
       </h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {upcomingGames.map((game) => (
-          <Card 
+          <Card
             key={game.id}
             onClick={() => onSelectGame?.(game)}
-            className="cursor-pointer overflow-hidden transition-all hover:shadow-lg border-l-4 border-l-stadium-primary hover:scale-[1.02]"
+            className="cursor-pointer overflow-hidden transform transition duration-300 hover:scale-105 shadow-md hover:shadow-xl rounded-xl border border-gray-200"
           >
-            <CardHeader className="bg-gradient-to-r from-stadium-primary/10 to-transparent">
-              <CardTitle className="flex justify-between items-center">
-                <span className="text-stadium-primary">{game.stadium}</span>
-                <span className="text-sm bg-stadium-primary text-white px-2 py-1 rounded">
+            <CardHeader className="bg-gradient-to-r from-stadium-primary to-stadium-primary/50 p-4">
+              <CardTitle className="flex justify-between items-center text-lg font-semibold text-white">
+                <span>{game.stadium}</span>
+                <span className="text-xs bg-white bg-opacity-30 backdrop-blur-sm px-2 py-1 rounded uppercase">
                   {game.time}
                 </span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="pt-4">
+            <CardContent className="pt-6 pb-4 px-5 bg-card">
               <div className="flex flex-col space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="font-bold text-lg">{game.homeTeam}</span>
@@ -84,7 +84,7 @@ const GameSelection: React.FC<Props> = ({ onSelectGame }) => {
                   </span>
                 </div>
                 <div className="flex justify-center">
-                  <span className="bg-gray-100 text-gray-800 px-4 py-1 rounded-full text-xs">
+                  <span className="bg-muted text-muted-foreground px-4 py-1 rounded-full text-xs">
                     {language === "en" ? "VS" : "ضد"}
                   </span>
                 </div>
@@ -94,7 +94,7 @@ const GameSelection: React.FC<Props> = ({ onSelectGame }) => {
                     {language === "en" ? "Away" : "الضيف"}
                   </span>
                 </div>
-                <div className="mt-3 pt-3 border-t text-center text-sm text-gray-600">
+                <div className="mt-3 pt-3 border-t border-border text-center text-sm text-muted-foreground">
                   {formatDate(game.date)}
                 </div>
               </div>
