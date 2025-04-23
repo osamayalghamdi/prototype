@@ -1,0 +1,114 @@
+[
+    {
+        "tag": "al_ittihad_goalkeepers",
+        "patterns": [
+            "Who are Al Ittihad's goalkeepers?",
+            "Can you name the goalkeepers for Al Ittihad?",
+            "Which players are goalkeepers in Al Ittihad?",
+            "Who is playing as a goalkeeper for Al Ittihad?",
+            "What are the names of Al Ittihad’s goalkeepers?"
+        ],
+        "responses": [
+            "The goalkeepers for Al Ittihad are Predrag Rajković, Mohammed Al Mahasnah, and Osama Al Mermesh."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ittihad_defenders",
+        "patterns": [
+            "Who are the defenders in Al Ittihad’s squad?",
+            "Which players play in defense for Al Ittihad?",
+            "Who is in the defense lineup of Al Ittihad?",
+            "What are the names of Al Ittihad's defenders?",
+            "Can you list Al Ittihad's defenders?"
+        ],
+        "responses": [
+            "Al Ittihad’s defenders include Danilo Pereira, Abdulelah Al Amri, Saad Al Mosa, Ahmed Sharahili, Mario Mitaj, Muath Fagihy, Hassan Kadesh, Muhannad Al Shanqiti, and Fawaz Al Soqoor."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ittihad_midfielders",
+        "patterns": [
+            "Which players make up Al Ittihad’s midfield?",
+            "Who are Al Ittihad's midfielders?",
+            "Can you name the midfielders in Al Ittihad?",
+            "Who plays in the midfield for Al Ittihad?",
+            "What is the midfield lineup of Al Ittihad?"
+        ],
+        "responses": [
+            "Al Ittihad’s midfielders are Fabinho, N'Golo Kanté, Houssem Aouar, Awad Al Nashri, Unai Hernández, Hamed Al Ghamdi, Abdulelah Hawsawi, and Nawaf Al Jadaani."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ittihad_forwards",
+        "patterns": [
+            "Who are the forwards for Al Ittihad?",
+            "Which players are forwards in Al Ittihad?",
+            "Can you list Al Ittihad’s attackers?",
+            "Who plays in the forward line for Al Ittihad?",
+            "What is the attacking lineup of Al Ittihad?"
+        ],
+        "responses": [
+            "The forwards for Al Ittihad are Karim Benzema, Steven Bergwijn, Moussa Diaby, Abdulrahman Al Obud, Abdulaziz Al Bishi, Saleh Al Shehri, and Omar Al-Jadani."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ittihad_coach",
+        "patterns": [
+            "Who is the current head coach of Al Ittihad?",
+            "Who coaches Al Ittihad now?",
+            "Who is managing Al Ittihad?",
+            "Who is Al Ittihad’s current manager?",
+            "Who is the head coach for Al Ittihad?"
+        ],
+        "responses": [
+            "The head coach of Al Ittihad is Laurent Blanc."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ittihad_stadium",
+        "patterns": [
+            "Where does Al Ittihad play their home games?",
+            "What stadium does Al Ittihad use?",
+            "What is the name and capacity of Al Ittihad’s stadium?",
+            "Which stadium hosts Al Ittihad's home matches?",
+            "What is the seating capacity of Al Ittihad’s stadium?"
+        ],
+        "responses": [
+            "Al Ittihad plays at King Abdullah Sports City in Jeddah, which has a capacity of approximately 62,345."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ittihad_history",
+        "patterns": [
+            "When was Al Ittihad founded?",
+            "What is Al Ittihad’s role in Saudi football?",
+            "What is the history of Al Ittihad Football Club?",
+            "How old is Al Ittihad?",
+            "What makes Al Ittihad important in Saudi football?"
+        ],
+        "responses": [
+            "Al Ittihad was founded in 1928, making it the oldest football club in Saudi Arabia. It is based in Jeddah and is one of the \"Big Four\" clubs, known for its large and passionate fanbase."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ittihad_achievements",
+        "patterns": [
+            "How many Saudi Professional League titles has Al Ittihad won?",
+            "What are the main achievements of Al Ittihad?",
+            "Can you list the trophies Al Ittihad has won?",
+            "What honors has Al Ittihad received?",
+            "What titles has Al Ittihad claimed?"
+        ],
+        "responses": [
+            "Saudi Professional League: 9 titles\nKing Cup: 9 titles\nCrown Prince Cup: 8 titles\nSaudi Super Cup: 1 title\nAFC Champions League: 2 titles\nAsian Cup Winners' Cup: 1 title"
+        ],
+        "context_set": ""
+    }
+]

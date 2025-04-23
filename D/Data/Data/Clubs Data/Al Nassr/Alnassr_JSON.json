@@ -1,0 +1,114 @@
+[
+    {
+        "tag": "al_nassr_goalkeepers",
+        "patterns": [
+            "Who are Al Nassr's goalkeepers?",
+            "Can you name the goalkeepers for Al Nassr?",
+            "Which players are goalkeepers in Al Nassr?",
+            "Who is playing as a goalkeeper for Al Nassr?",
+            "What are the names of Al Nassr’s goalkeepers?"
+        ],
+        "responses": [
+            "The goalkeepers for Al Nassr are Bento, Raghid Najjar, and Ahmad Al Harbi."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_nassr_defenders",
+        "patterns": [
+            "Who are the defenders in Al Nassr’s squad?",
+            "Which players play in defense for Al Nassr?",
+            "Who is in the defense lineup of Al Nassr?",
+            "What are the names of Al Nassr's defenders?",
+            "Can you list Al Nassr's defenders?"
+        ],
+        "responses": [
+            "Al Nassr’s defenders include Sultan Al Ghannam, Mohammed Al Fatil, Nawaf Boushal, Majed Qasheesh, Aymeric Laporte, Ali Lajami, Salem Al Najdi, and Mohamed Simakan."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_nassr_midfielders",
+        "patterns": [
+            "Which players are in Al Nassr’s midfield lineup?",
+            "Who are Al Nassr's midfielders?",
+            "Can you name the midfielders in Al Nassr?",
+            "Who plays in the midfield for Al Nassr?",
+            "What is the midfield lineup of Al Nassr?"
+        ],
+        "responses": [
+            "Al Nassr’s midfielders are Abdulmajeed Al Sulayhim, Abdullah Al Khaibari, Ali Al Hassan, Otávio, Marcelo Brozović, and Aiman Yahya."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_nassr_forwards",
+        "patterns": [
+            "Who are the forwards for Al Nassr?",
+            "Which players are forwards in Al Nassr?",
+            "Can you list Al Nassr’s attackers?",
+            "Who plays in the forward line for Al Nassr?",
+            "What is the attacking lineup of Al Nassr?"
+        ],
+        "responses": [
+            "The forwards for Al Nassr are Cristiano Ronaldo, Sadio Mané, Mohammed Maran, Abdulrahman Ghareeb, Wesley, Ângelo, Jhon Durán, Youssef Al Tahan, and Bassam Hazazi."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_nassr_coach",
+        "patterns": [
+            "Who is the head coach of Al Nassr?",
+            "Who coaches Al Nassr?",
+            "Who is managing Al Nassr now?",
+            "Who is Al Nassr’s current manager?",
+            "Who leads Al Nassr as head coach?"
+        ],
+        "responses": [
+            "The head coach of Al Nassr is Stefano Pioli."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_nassr_stadium",
+        "patterns": [
+            "Where does Al Nassr play its home matches?",
+            "What is the name and capacity of Al Nassr’s stadium?",
+            "Which stadium hosts Al Nassr's home games?",
+            "Where is Al Awwal Park located?",
+            "How many fans can Al Nassr’s stadium hold?"
+        ],
+        "responses": [
+            "Al Nassr plays at Al Awwal Park at King Saud University in Riyadh, which has a capacity of approximately 25,000 spectators."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_nassr_history",
+        "patterns": [
+            "When was Al Nassr founded?",
+            "What is Al Nassr’s history in Saudi football?",
+            "How old is Al Nassr?",
+            "What makes Al Nassr significant in Saudi football?",
+            "What is Al Nassr known for in Asia?"
+        ],
+        "responses": [
+            "Al Nassr was founded in 1955. It is one of the \"Big Four\" clubs in Saudi Arabia and shares a fierce rivalry with Al Hilal. The club has seen significant domestic and continental success, and notably participated in the FIFA Club World Cup in 2000."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_nassr_achievements",
+        "patterns": [
+            "What are the main achievements of Al Nassr?",
+            "What titles has Al Nassr won?",
+            "Can you list Al Nassr's trophies?",
+            "What honors has Al Nassr received?",
+            "What are Al Nassr’s major accomplishments?"
+        ],
+        "responses": [
+            "Saudi Professional League: 9 titles\nKing Cup: 6 titles\nCrown Prince Cup: 3 titles\nSaudi Super Cup: 2 titles\nAFC Cup Winners' Cup: 1 title\nAFC Super Cup: 1 title"
+        ],
+        "context_set": ""
+    }
+]

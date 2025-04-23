@@ -1,0 +1,114 @@
+[
+    {
+        "tag": "al_hilal_goalkeepers",
+        "patterns": [
+            "Who are Al Hilal's goalkeepers?",
+            "Can you name the goalkeepers for Al Hilal?",
+            "Which players are goalkeepers in Al Hilal?",
+            "Who is playing as a goalkeeper for Al Hilal?",
+            "What are the names of Al Hilal’s goalkeepers?"
+        ],
+        "responses": [
+            "The goalkeepers for Al Hilal are Yassine Bounou, Mohammed Al Owais, and Mohammed Al Yami."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_hilal_defenders",
+        "patterns": [
+            "Who are the defenders on Al Hilal’s squad?",
+            "Which players play in defense for Al Hilal?",
+            "Who is in the defense lineup of Al Hilal?",
+            "What are the names of Al Hilal's defenders?",
+            "Can you list Al Hilal's defenders?"
+        ],
+        "responses": [
+            "Al Hilal’s defenders include Kalidou Koulibaly, Ali Al Bulayhi, Renan Lodi, Yasir Al Shahrani, Hassan Al Tambakti, Hamad Al Yami, João Cancelo, and Moteb Al Harbi."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_hilal_midfielders",
+        "patterns": [
+            "Which players make up Al Hilal’s midfield?",
+            "Who are Al Hilal's midfielders?",
+            "Can you name the midfielders in Al Hilal?",
+            "Who plays in the midfield for Al Hilal?",
+            "What is the midfield lineup of Al Hilal?"
+        ],
+        "responses": [
+            "Al Hilal’s midfielders are Rúben Neves, Sergej Milinković-Savić, Mohamed Kanno, Salem Al Dawsari, Nasser Al Dawsari, and Mohammed Al Qahtani."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_hilal_forwards",
+        "patterns": [
+            "Who are Al Hilal’s forwards?",
+            "Which players are forwards in Al Hilal?",
+            "Can you list Al Hilal’s attackers?",
+            "Who plays in the forward line for Al Hilal?",
+            "What is the attacking lineup of Al Hilal?"
+        ],
+        "responses": [
+            "The forwards for Al Hilal are Aleksandar Mitrović, Malcom, Marcos Leonardo, Abdullah Al Hamddan, and Khalid Al Ghannam."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_hilal_coach",
+        "patterns": [
+            "Who is the head coach of Al Hilal?",
+            "Who coaches Al Hilal?",
+            "Who is managing Al Hilal now?",
+            "Who is Al Hilal’s current manager?",
+            "Who leads Al Hilal as head coach?"
+        ],
+        "responses": [
+            "The head coach of Al Hilal is Jorge Jesus."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_hilal_stadium",
+        "patterns": [
+            "What is the name and capacity of Al Hilal’s home stadium?",
+            "Where does Al Hilal play its home games?",
+            "What stadium does Al Hilal use?",
+            "Where is Kingdom Arena located?",
+            "How many spectators can Al Hilal’s stadium hold?"
+        ],
+        "responses": [
+            "Al Hilal plays its home matches at Kingdom Arena in Riyadh, which has a capacity of approximately 26,000."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_hilal_history",
+        "patterns": [
+            "When was Al Hilal founded?",
+            "What is Al Hilal’s status in Saudi and Asian football?",
+            "How old is Al Hilal Football Club?",
+            "What is the history of Al Hilal?",
+            "When did Al Hilal start?"
+        ],
+        "responses": [
+            "Al Hilal was founded in 1957. It is one of the \"Big Four\" clubs in Saudi Arabia and is Asia's most successful club in terms of continental titles."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_hilal_achievements",
+        "patterns": [
+            "What are the main achievements of Al Hilal?",
+            "What titles has Al Hilal won?",
+            "Can you list Al Hilal's trophies?",
+            "What honors has Al Hilal received?",
+            "What are Al Hilal’s major accomplishments?"
+        ],
+        "responses": [
+            "Saudi Professional League: 19 titles\nKing Cup: 10 titles\nCrown Prince Cup: 13 titles (record)\nSaudi Super Cup: 3 titles\nAFC Champions League: 4 titles (record)\nAsian Cup Winners' Cup: 2 titles (record)\nAFC Super Cup: 2 titles"
+        ],
+        "context_set": ""
+    }
+]

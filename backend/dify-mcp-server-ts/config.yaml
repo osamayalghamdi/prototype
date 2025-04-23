@@ -1,0 +1,5 @@
+# Dify MCP Server Configuration
+dify_base_url: 'https://api.dify.ai/v1'
+dify_app_sks:
+  - 'app-xxxxxxxxxxxxxx' # Replace with your actual Dify app secret key
+  # Add more Dify app secret keys as needed

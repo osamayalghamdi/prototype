@@ -24,7 +24,7 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				'stadium-primary': '#f04434', // Updated to new red theme
+				'stadium-primary': '#2563eb', // Updated to blue theme
 				'stadium-secondary': '#FFFFFF', // White accent
 				'danger-zone': '#dc2626', // ISO-compliant emergency red
 				'crowd-low': '#34d39980',

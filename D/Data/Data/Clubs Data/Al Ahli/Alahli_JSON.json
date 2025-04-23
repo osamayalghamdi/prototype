@@ -1,0 +1,114 @@
+[
+    {
+        "tag": "al_ahli_goalkeepers",
+        "patterns": [
+            "Who are Al Ahli's goalkeepers?",
+            "Can you name the goalkeepers for Al Ahli?",
+            "Which players are goalkeepers in Al Ahli?",
+            "Who is playing as a goalkeeper for Al Ahli?",
+            "What are the names of Al Ahli’s goalkeepers?"
+        ],
+        "responses": [
+            "The goalkeepers for Al Ahli are Édouard Mendy, Abdulrahman Al Sanbi, and Abdullah Abdo."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ahli_defenders",
+        "patterns": [
+            "Who are the defenders on Al Ahli's current squad?",
+            "Which players play in defense for Al Ahli?",
+            "Who is in the defense lineup of Al Ahli?",
+            "What are the names of Al Ahli's defenders?",
+            "Can you list Al Ahli's defenders?"
+        ],
+        "responses": [
+            "Al Ahli's defenders include Roger Ibañez, Merih Demiral, Rayan Hamed, Mohammed Sulaiman, Matteo Dams, Bassam Al Hurayji, Abdullah Al Ammar, Ali Majrashi, and Saad Yaslam."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ahli_midfielders",
+        "patterns": [
+            "Which players make up Al Ahli’s midfield?",
+            "Who are Al Ahli's midfielders?",
+            "Can you name the midfielders in Al Ahli?",
+            "Who plays in the midfield for Al Ahli?",
+            "What is the midfield lineup of Al Ahli?"
+        ],
+        "responses": [
+            "Al Ahli's midfielders are Franck Kessié, Gabri Veiga, Alexsander, Eid Al Muwallad, Sumayhan Al Nabit, Ziyad Al Johani, Abdulkarim Darisi, Mohammed Al-Majhad, and Abdullah Otayf."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ahli_forwards",
+        "patterns": [
+            "Who are Al Ahli’s forwards?",
+            "Which players are forwards in Al Ahli?",
+            "Can you list Al Ahli’s attackers?",
+            "Who plays in the forward line for Al Ahli?",
+            "What is the attacking lineup of Al Ahli?"
+        ],
+        "responses": [
+            "The forwards for Al Ahli are Riyad Mahrez, Ivan Toney, Roberto Firmino, Galeno, Feras Al Brikan, and Fahad Al Rashidi."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ahli_coach",
+        "patterns": [
+            "Who is the head coach of Al Ahli?",
+            "Who coaches Al Ahli?",
+            "Who is managing Al Ahli now?",
+            "Who is Al Ahli’s current manager?",
+            "Who leads Al Ahli as head coach?"
+        ],
+        "responses": [
+            "The head coach of Al Ahli is Matthias Jaissle."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ahli_stadium",
+        "patterns": [
+            "Where does Al Ahli play their home matches?",
+            "What is the name of Al Ahli’s stadium?",
+            "Which stadium does Al Ahli use?",
+            "Where is Al Ahli’s home ground?",
+            "What’s the capacity of Al Ahli’s stadium?"
+        ],
+        "responses": [
+            "Al Ahli plays at King Abdullah Sports City in Jeddah, which has a capacity of approximately 62,345 spectators."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ahli_history",
+        "patterns": [
+            "When was Al Ahli established?",
+            "What is the history of Al Ahli?",
+            "How old is Al Ahli Football Club?",
+            "When did Al Ahli start?",
+            "What is Al Ahli’s status in Saudi football?"
+        ],
+        "responses": [
+            "Al Ahli was established in 1937. They are considered the fourth member of the \"Big Four\" in Saudi football and have a large, dedicated fan base. The club is based in Jeddah."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "al_ahli_achievements",
+        "patterns": [
+            "What are the main achievements of Al Ahli?",
+            "What titles has Al Ahli won?",
+            "Can you list Al Ahli's trophies?",
+            "What honors has Al Ahli received?",
+            "What are Al Ahli’s major accomplishments?"
+        ],
+        "responses": [
+            "Saudi Professional League: 3 titles\nKing Cup: 13 titles (record)\nCrown Prince Cup: 6 titles\nSaudi Super Cup: 1 title\nGCC Club Cup: 3 titles"
+        ],
+        "context_set": ""
+    }
+]

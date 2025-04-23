@@ -12,7 +12,7 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
+    --primary: 217 71% 53%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -22,16 +22,15 @@
     --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 71% 53%;
     --radius: 0.5rem;
     
-    /* Custom colors for FanBot */
-    /* Updated to red theme (#f04434) */
-    --stadium-primary: 7 86% 57%;
-    --stadium-secondary: 0 0% 100%;    /* White accent */
-    --stadium-accent: 45 100% 50%;
+    /* Custom colors for FanBot - Updated to blue theme */
+    --stadium-primary: 217 71% 53%; /* Blue (#2563eb) */
+    --stadium-secondary: 0 0% 100%; /* White accent */
+    --stadium-accent: 45 100% 50%; 
     --stadium-success: 142 76% 36%;
     --stadium-warning: 38 92% 50%;
     --stadium-danger: 0 84% 60%;
@@ -58,8 +57,8 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.5% 48%;
 
-    /* Dark mode red (slightly lighter) */
-    --stadium-primary: 7 86% 65%;
+    /* Dark mode blue */
+    --stadium-primary: 217 71% 60%;
     --stadium-secondary: 0 0% 20%;
   }
 
@@ -90,11 +89,11 @@
   }
 
   .stadium-gradient {
-    background: linear-gradient(135deg, hsl(var(--stadium-primary)) 0%, hsl(var(--stadium-secondary)) 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   }
 
   .stadium-card {
-    @apply bg-card text-card-foreground rounded-xl shadow-lg border border-border hover:shadow-xl transition-shadow duration-300;
+    @apply bg-card text-card-foreground rounded-xl shadow-lg border border-gray-300 hover:shadow-xl transition-shadow duration-300;
   }
 
   .stadium-button {
@@ -102,11 +101,11 @@
   }
 
   .stadium-button-primary {
-    @apply stadium-button bg-stadium-primary text-white hover:bg-stadium-secondary;
+    @apply stadium-button bg-blue-600 text-white hover:bg-blue-700;
   }
 
   .stadium-button-secondary {
-    @apply stadium-button bg-stadium-secondary text-white hover:bg-stadium-primary;
+    @apply stadium-button bg-white text-blue-600 border border-blue-600 hover:bg-blue-50;
   }
 
   /* Global body styles */
@@ -114,5 +113,14 @@
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     transition: background-color 0.3s, color 0.3s;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .animate-blink {
+    animation: blink 1s infinite;
   }
 }

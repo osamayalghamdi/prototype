@@ -34,25 +34,7 @@ const CrowdIndicator: React.FC<CrowdIndicatorProps> = ({ area }) => {
   };
   
   return (
-    <div className="mb-6">
-      <div className="flex justify-between items-center mb-1">
-        <span className="text-sm font-medium">
-          {language === "en" ? `${area} Crowd Level` : `مستوى الحشد في ${area}`}
-        </span>
-        <span className="text-sm font-medium">{getLabel()}</span>
-      </div>
-      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-        <div 
-          className={`crowd-indicator crowd-${crowdDensity}`}
-          style={{ width: getPercentage() }}
-          role="progressbar"
-          aria-valuenow={parseInt(getPercentage())}
-          aria-valuemin={0}
-          aria-valuemax={100}
-        ></div>
-      </div>
-    </div>
-  );
+    
 };
 
 export default CrowdIndicator;

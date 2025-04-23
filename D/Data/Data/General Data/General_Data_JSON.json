@@ -1,0 +1,604 @@
+[
+    {
+        "tag": "visa_requirement",
+        "patterns": [
+            "Do I need a visa to enter Saudi Arabia for a football match?",
+            "Is a visa necessary to attend a game in Saudi Arabia?",
+            "Will I need to apply for a visa before watching a match in Saudi Arabia?",
+            "Do I need a tourist visa to visit Saudi Arabia for a football event?",
+            "Is entry into Saudi Arabia for a match allowed without a visa?"
+        ],
+        "responses": [
+            "Yes, most visitors need a visa. You can apply for a tourist eVisa online via https://visa.visitsaudi.com. Citizens of eligible countries can apply and receive approval within minutes."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "visa_on_arrival",
+        "patterns": [
+            "Can I get a visa on arrival in Saudi Arabia?",
+            "Is visa on arrival available for Saudi Arabia?",
+            "Am I eligible for a visa on arrival in KSA?",
+            "Who can get a visa upon arrival in Saudi Arabia?",
+            "Is visa on arrival an option for visiting Saudi Arabia?"
+        ],
+        "responses": [
+            "Citizens from select countries (e.g., USA, UK, Schengen area) can get a visa on arrival."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "hayya_card_requirement",
+        "patterns": [
+            "Is a Hayya card required like in the Qatar World Cup?",
+            "Do I need a Hayya card for matches in Saudi Arabia?",
+            "Is a Hayya permit necessary to attend football games in Saudi?",
+            "Will Saudi Arabia ask for a Hayya card?",
+            "Is a match ticket and visa enough without a Hayya card?"
+        ],
+        "responses": [
+            "No, Saudi Arabia does not require a Hayya card. Only a valid match ticket and visa are typically needed."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "vaccination_requirements",
+        "patterns": [
+            "Are any vaccinations needed to enter Saudi Arabia?",
+            "Do I need a COVID-19 test or vaccine to travel to Saudi Arabia?",
+            "What health checks are required for Saudi entry?",
+            "Are vaccines mandatory to watch football in Saudi Arabia?",
+            "Should I be vaccinated before traveling to Saudi Arabia for a game?"
+        ],
+        "responses": [
+            "As of now, no mandatory vaccines are required, but COVID-19 vaccination or test results may be required based on airline or health regulations. Check the Saudi CDC or your airline for updates."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "women_traveling_alone",
+        "patterns": [
+            "Can women travel alone to attend a match in Saudi Arabia?",
+            "Is it okay for a woman to travel solo for a football event in KSA?",
+            "Are women allowed to go to games alone in Saudi Arabia?",
+            "Can a female tourist attend football matches by herself in Saudi?",
+            "Is it allowed for women to travel independently to sports events in Saudi?"
+        ],
+        "responses": [
+            "Yes, women can travel independently to Saudi Arabia and attend sporting events. Dress modestly and follow cultural guidelines."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "best_airport",
+        "patterns": [
+            "What is the best airport to fly into?",
+            "Which airport should I use for a football match in Saudi Arabia?",
+            "Where should I land if I'm attending a game in Saudi?",
+            "Best airport to arrive at for Saudi football events?",
+            "Which airport is closest to the match location?"
+        ],
+        "responses": [
+            "Depends on the match location:\nRiyadh: King Khalid International Airport (RUH)\nJeddah: King Abdulaziz International Airport (JED)\nDammam: King Fahd International Airport (DMM)"
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "public_transport_stadiums",
+        "patterns": [
+            "Is public transportation available to stadiums?",
+            "Can I use buses or trains to reach the stadium?",
+            "Are public transport options available for matches?",
+            "How do I get to stadiums via public transport in Saudi Arabia?",
+            "Is there metro or bus access to stadiums in major cities?"
+        ],
+        "responses": [
+            "Yes, in major cities like Riyadh and Jeddah, buses and ride-hailing apps (Uber, Careem) are reliable. Metro lines in Riyadh are expanding."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "intercity_travel",
+        "patterns": [
+            "How do I travel between cities?",
+            "What’s the best way to move between cities in Saudi Arabia?",
+            "Can I fly or take a train between match cities?",
+            "How do fans travel from Jeddah to Riyadh or Makkah?",
+            "What are intercity travel options during the tournament?"
+        ],
+        "responses": [
+            "Use domestic flights or the Haramain high-speed train (e.g., from Jeddah to Makkah or Medina)."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "car_rental",
+        "patterns": [
+            "Can I rent a car?",
+            "Is it possible to drive in Saudi Arabia as a tourist?",
+            "Can visitors rent vehicles in Saudi Arabia?",
+            "Do I need an international license to rent a car in KSA?",
+            "Can I hire a car to get around during football matches?"
+        ],
+        "responses": [
+            "Yes. A valid international driver’s license and passport are required. Drive on the right-hand side."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "stadium_parking",
+        "patterns": [
+            "Is parking available at stadiums?",
+            "Can I park my car at the football stadium?",
+            "Is there space to park near stadiums?",
+            "Where do I park when attending a match in Saudi?",
+            "Is stadium parking free and accessible during matches?"
+        ],
+        "responses": [
+            "Yes, but it can be crowded. Arrive early or use rideshares to avoid delays."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "famous_stadiums",
+        "patterns": [
+            "What are the most famous football stadiums in Saudi Arabia?",
+            "Which football stadiums are well-known in Saudi Arabia?",
+            "Name top football stadiums in Saudi Arabia?",
+            "What are some notable stadiums in Saudi Arabia?",
+            "Can you list major football stadiums in Saudi Arabia?"
+        ],
+        "responses": [
+            "King Fahd International Stadium (Riyadh)\nKing Abdullah Sports City (Jeddah)\nPrince Mohammed bin Salman Stadium (Al Hilal home)\nMrsool Park (Riyadh)"
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "ticket_purchase",
+        "patterns": [
+            "Where can I buy tickets?",
+            "How do I purchase match tickets?",
+            "Where are tickets sold for Saudi matches?",
+            "What platform do I use to get football tickets?",
+            "How to buy tickets for games in Saudi Arabia?"
+        ],
+        "responses": [
+            "Through https://ticketmx.com or club websites. Tickets for major events may sell out quickly."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "family_sections",
+        "patterns": [
+            "Are there separate sections for families or women?",
+            "Do stadiums have family areas?",
+            "Is there designated seating for women at matches?",
+            "Are fans separated by gender or family type?",
+            "Can families sit together at football stadiums?"
+        ],
+        "responses": [
+            "As of 2018, all fans can sit together, though family sections are still available."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "outside_food",
+        "patterns": [
+            "Can I bring food and drink into the stadium?",
+            "Is outside food allowed in stadiums?",
+            "Can fans take snacks to matches?",
+            "Are food and beverages from outside permitted?",
+            "Is it okay to bring water or snacks into a stadium?"
+        ],
+        "responses": [
+            "No. Outside food and drink are not allowed. Concessions are available inside."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "alcohol_policy",
+        "patterns": [
+            "Is alcohol allowed in stadiums?",
+            "Can I drink alcohol during a match?",
+            "Is beer served at football games?",
+            "Are alcoholic beverages permitted in Saudi stadiums?",
+            "Is alcohol consumption allowed in stadiums?"
+        ],
+        "responses": [
+            "No, alcohol is strictly prohibited in Saudi Arabia in all public and private settings."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "english_services",
+        "patterns": [
+            "Are matches shown in English or only Arabic?",
+            "Is there English commentary at matches?",
+            "Will information be available in English?",
+            "Are there English-language services at the stadium?",
+            "Can I follow matches in English while in Saudi Arabia?"
+        ],
+        "responses": [
+            "Announcements are mostly in Arabic, but English services are increasing at international matches."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "vip_hospitality",
+        "patterns": [
+            "Are there VIP or hospitality packages?",
+            "Can I book premium seating at stadiums?",
+            "Do stadiums offer luxury boxes or lounges?",
+            "Are hospitality options available at football matches?",
+            "Is there VIP access or experience for ticket holders?"
+        ],
+        "responses": [
+            "Yes. Many stadiums offer VIP seating, private boxes, and lounge access for premium ticket holders."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "top_clubs",
+        "patterns": [
+            "What are the top football clubs in Saudi Arabia?",
+            "Which football teams are most popular in Saudi Arabia?",
+            "Name the major clubs in the Saudi Pro League.",
+            "What are the biggest football clubs in Saudi Arabia?",
+            "List the top football teams in Saudi Arabia."
+        ],
+        "responses": [
+            "Al Hilal\nAl Nassr\nAl Ittihad\nAl Ahli"
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "ronaldo_team",
+        "patterns": [
+            "Where does Cristiano Ronaldo play?",
+            "Which Saudi club does Ronaldo play for?",
+            "Is Cristiano Ronaldo playing in Saudi Arabia?",
+            "Which team in Saudi signed Ronaldo?",
+            "What is the name of Ronaldo's Saudi team?"
+        ],
+        "responses": [
+            "Cristiano Ronaldo plays for Al Nassr."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "pro_league_season",
+        "patterns": [
+            "When is the Saudi Pro League season?",
+            "What months does the Saudi league run?",
+            "When does the Saudi football season start and end?",
+            "What’s the schedule of the Saudi Pro League?",
+            "What is the usual duration of the Saudi football season?"
+        ],
+        "responses": [
+            "Typically from August to May each year."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "international_tournaments",
+        "patterns": [
+            "Are there any international tournaments held in Saudi Arabia?",
+            "Which global football events happen in Saudi Arabia?",
+            "Has Saudi Arabia hosted international football competitions?",
+            "What international cups are played in Saudi Arabia?",
+            "Do major international football events occur in Saudi?"
+        ],
+        "responses": [
+            "Yes. Events like the Spanish Super Cup, Italian Super Cup, and FIFA Club World Cup 2023 have been hosted."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "match_schedules",
+        "patterns": [
+            "Where can I find match schedules?",
+            "How do I check Saudi football match dates?",
+            "Where are fixtures for the Saudi Pro League listed?",
+            "Which website shows match schedules for games in Saudi Arabia?",
+            "Where to look for upcoming football matches in KSA?"
+        ],
+        "responses": [
+            "Visit https://spl.com.sa for the Saudi Pro League or club websites."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "womens_matches",
+        "patterns": [
+            "Are women’s matches also played?",
+            "Does Saudi Arabia have women’s football?",
+            "Are there matches for female football teams?",
+            "Can I watch women's league matches in Saudi Arabia?",
+            "Are women's football games held in Saudi?"
+        ],
+        "responses": [
+            "Yes. Saudi Arabia launched its Women’s Football League in 2022."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "technology_connectivity",
+        "patterns": [
+            "Can I use my mobile phone and internet?",
+            "Is it possible to use mobile data and the internet?",
+            "Will I be able to use my phone and internet in Saudi Arabia?",
+            "Can I access the internet through my mobile in Saudi Arabia?",
+            "Can I use mobile phone services like internet in Saudi Arabia?"
+        ],
+        "responses": [
+            "Yes. Buy a local SIM card (e.g., STC, Zain, Mobily) at the airport."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "public_wifi",
+        "patterns": [
+            "Is public Wi-Fi available in stadiums?",
+            "Do stadiums provide public Wi-Fi?",
+            "Can I access Wi-Fi in stadiums?",
+            "Is there free Wi-Fi at stadiums?",
+            "Are there Wi-Fi services in the stadiums?"
+        ],
+        "responses": [
+            "Not always. It’s best to use mobile data."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "app_downloads",
+        "patterns": [
+            "Which apps should I download before coming?",
+            "What apps should I install before visiting Saudi Arabia?",
+            "What apps will be useful to download before my trip?",
+            "Which apps should I get for transport and tickets?",
+            "What mobile apps do I need to download before arriving?"
+        ],
+        "responses": [
+            "Careem/Uber (transport)\nGoogle Maps\nSTC Pay or Apple Pay\nTicketMX (for tickets)"
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "culture_etiquette_safety",
+        "patterns": [
+            "Is it safe to visit Saudi Arabia for sports?",
+            "Is Saudi Arabia a safe destination for sports tourism?",
+            "Can I safely attend sports events in Saudi Arabia?",
+            "Is Saudi Arabia safe for international sports tourists?",
+            "Are there any safety concerns for visitors attending sports events?"
+        ],
+        "responses": [
+            "Yes. Saudi Arabia is generally safe for tourists, especially in major cities."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "cheering_etiquette",
+        "patterns": [
+            "Is it okay to cheer loudly during matches?",
+            "Can I cheer loudly during a match in Saudi Arabia?",
+            "Is cheering loudly acceptable at football matches?",
+            "Is loud cheering permitted at stadiums in Saudi Arabia?",
+            "Can I make noise and cheer during football games?"
+        ],
+        "responses": [
+            "Yes. Fans are passionate and vocal. Just avoid offensive gestures or chants."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "jersey_etiquette",
+        "patterns": [
+            "Can I wear my team jersey?",
+            "Is it okay to wear my football jersey at matches?",
+            "Can I wear a jersey to the stadium?",
+            "Is wearing a football jersey allowed in the stadium?",
+            "Can I show my team pride by wearing a jersey?"
+        ],
+        "responses": [
+            "Yes. Wear club or national team jerseys. Avoid anything offensive or political."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "women_dress_code",
+        "patterns": [
+            "What should women wear?",
+            "What is the dress code for women?",
+            "Are there specific clothing rules for women?",
+            "What is considered appropriate clothing for women?",
+            "Can women wear casual clothing or should they dress modestly?"
+        ],
+        "responses": [
+            "Modest clothing (e.g., long sleeves, loose pants)."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "photo_rules",
+        "patterns": [
+            "Are there rules on taking photos in stadiums?",
+            "Can I take photos at the stadium?",
+            "Is it okay to take pictures during a match?",
+            "Are there any restrictions on photography in stadiums?",
+            "Can I take photos at the game?"
+        ],
+        "responses": [
+            "You can take photos of the game, but avoid photographing people without permission."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "flag_banner",
+        "patterns": [
+            "Can I bring a flag or banner?",
+            "Is it allowed to bring a flag or banner into the stadium?",
+            "Can I bring a banner or flag to the match?",
+            "Are flags and banners allowed in the stadium?",
+            "Is it permissible to bring a flag to the game?"
+        ],
+        "responses": [
+            "Yes, if it’s not offensive. Check stadium rules for dimensions."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "currency",
+        "patterns": [
+            "What is the currency in Saudi Arabia?",
+            "Which currency is used in Saudi Arabia?",
+            "What currency should I use in Saudi Arabia?",
+            "What is the official currency of Saudi Arabia?",
+            "What money do they use in Saudi Arabia?"
+        ],
+        "responses": [
+            "Saudi Riyal (SAR)"
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "credit_cards",
+        "patterns": [
+            "Are credit cards accepted?",
+            "Can I use my credit card in Saudi Arabia?",
+            "Do most places accept credit cards?",
+            "Are credit cards commonly used in Saudi Arabia?",
+            "Can I pay with my credit card?"
+        ],
+        "responses": [
+            "Yes, widely. Visa, MasterCard, Apple Pay, and Mada are common."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "ticket_price",
+        "patterns": [
+            "How much is a football match ticket?",
+            "What is the price range for football tickets?",
+            "How much does a ticket for a match cost?",
+            "What are the prices for football tickets?",
+            "How much should I expect to pay for a football ticket?"
+        ],
+        "responses": [
+            "Prices vary:\nRegular: 30–100 SAR (~$8–27)\nVIP: 300–1,000+ SAR"
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "souvenir_costs",
+        "patterns": [
+            "Are stadium souvenirs expensive?",
+            "What is the cost of stadium merchandise?",
+            "Are football souvenirs in the stadium costly?",
+            "How expensive are souvenirs at the stadium?",
+            "Are the prices of stadium items high?"
+        ],
+        "responses": [
+            "Jerseys and merchandise are reasonably priced compared to European markets."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "laws_to_be_aware",
+        "patterns": [
+            "Are there any laws I should be aware of?",
+            "What laws should tourists know in Saudi Arabia?",
+            "What legal rules should I follow while visiting Saudi Arabia?",
+            "Are there any legal restrictions I should be aware of?",
+            "What are the key laws to consider while in Saudi Arabia?"
+        ],
+        "responses": [
+            "No alcohol or drugs\nDress modestly\nAvoid public displays of affection\nRespect prayer times and cultural norms"
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "crowd_control",
+        "patterns": [
+            "Is crowd control well managed?",
+            "Is there proper crowd management at events?",
+            "Are large crowds handled safely?",
+            "How well is crowd control during sports events?",
+            "Is the crowd controlled effectively during matches?"
+        ],
+        "responses": [
+            "Yes. Police and event staff are present. Follow signs and instructions."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "insurance_requirement",
+        "patterns": [
+            "Is insurance required?",
+            "Do I need insurance to travel to Saudi Arabia?",
+            "Is it necessary to have travel insurance for Saudi Arabia?",
+            "Is travel insurance a requirement for visiting Saudi Arabia?",
+            "Should I get insurance before traveling to Saudi Arabia?"
+        ],
+        "responses": [
+            "Travel insurance is recommended, and some visas require proof of it."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "passport_help",
+        "patterns": [
+            "What do I do if I lose my passport or need help?",
+            "What should I do if I lose my passport?",
+            "Where can I get help if I lose my passport?",
+            "What if I lose my passport in Saudi Arabia?",
+            "Where can I seek assistance if I lose my passport?"
+        ],
+        "responses": [
+            "Visit your country’s embassy or consulate in Riyadh or Jeddah."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "weather",
+        "patterns": [
+            "What weather should I expect?",
+            "What is the weather like in Saudi Arabia?",
+            "What are the weather conditions in Saudi Arabia?",
+            "What’s the climate like in Saudi Arabia?",
+            "How hot is it in Saudi Arabia?"
+        ],
+        "responses": [
+            "Summer: Very hot (up to 45°C / 113°F)\nWinter: Mild and pleasant (20–30°C / 68–86°F)"
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "language",
+        "patterns": [
+            "Do I need to speak Arabic?",
+            "Is it necessary to speak Arabic in Saudi Arabia?",
+            "Should I know Arabic to get around in Saudi Arabia?",
+            "Do I need to speak Arabic to communicate?",
+            "Is English enough to get by in Saudi Arabia?"
+        ],
+        "responses": [
+            "No, but learning basics helps. English is widely understood in cities and at events."
+        ],
+        "context_set": ""
+    },
+    {
+        "tag": "match_worth",
+        "patterns": [
+            "Is it worth attending a match in Saudi Arabia?",
+            "Should I attend a match in Saudi Arabia?",
+            "Is it a good idea to go to a football match in Saudi Arabia?",
+            "What’s the experience like at a football match in Saudi Arabia?",
+            "Why should I attend a football match in Saudi Arabia?"
+        ],
+        "responses": [
+            "Absolutely. The Saudi Pro League is rapidly growing, with world-class players and passionate fans in state-of-the-art stadiums."
+        ],
+        "context_set": ""
+    }
+]

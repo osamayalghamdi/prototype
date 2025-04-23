@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext, ReactNode } from "react";
 
 type EmergencyType = "medical" | "security" | "fire" | null;
-type Language = "en" | "ar";
+type Language = "en" | "ar" | "es";
 type CrowdDensity = "low" | "high" | "critical";
 
 interface AppContextType {
