@@ -1,0 +1,1684 @@
+app:
+  description: ''
+  icon: 📑
+  icon_background: '#EFF1F5'
+  mode: advanced-chat
+  name: 'Knowledge Retreival + Chatbot '
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.0.19@6b2b2e115b1b9d34a63eb26fadcc33d74330fd2ec06071bb30b8a24b1fab107a
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/ollama:0.0.5@cc38c90a58d4b4e43c9a821d352829b2c2a8d6d742de9fec9e61e6b34865b496
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions: []
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - remote_url
+      - local_file
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 1
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: true
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: answer
+      id: 1745246798936-2-1745246341583-target
+      selected: false
+      source: '1745246798936'
+      sourceHandle: '2'
+      target: '1745246341583'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1711528914102-source-1745245959056-target
+      selected: false
+      source: '1711528914102'
+      sourceHandle: source
+      target: '1745245959056'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1745246798936-1745246803445-1745254640614-target
+      selected: false
+      source: '1745246798936'
+      sourceHandle: '1745246803445'
+      target: '1745254640614'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: answer
+      id: 1745246798936-1-17452479923020-target
+      selected: false
+      source: '1745246798936'
+      sourceHandle: '1'
+      target: '17452479923020'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1745203997917-1-1711528915811-target
+      selected: false
+      source: '1745203997917'
+      sourceHandle: '1'
+      target: '1711528915811'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 17452040442320-source-17453665584890-target
+      selected: false
+      source: '17452040442320'
+      sourceHandle: source
+      target: '17453665584890'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1745203997917-1745369593483-17453695497670-target
+      selected: false
+      source: '1745203997917'
+      sourceHandle: '1745369593483'
+      target: '17453695497670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 17452040688460-source-17453696298410-target
+      selected: false
+      source: '17452040688460'
+      sourceHandle: source
+      target: '17453696298410'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: question-classifier
+      id: 1745245959056-source-1745246798936-target
+      selected: false
+      source: '1745245959056'
+      sourceHandle: source
+      target: '1745246798936'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: agent
+        targetType: template-transform
+      id: 1745464519515-source-1745466321408-target
+      selected: false
+      source: '1745464519515'
+      sourceHandle: source
+      target: '1745466321408'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1745466321408-source-1745465671762-target
+      selected: false
+      source: '1745466321408'
+      sourceHandle: source
+      target: '1745465671762'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: template-transform
+      id: 1745463575728-source-1745466321408-target
+      selected: false
+      source: '1745463575728'
+      sourceHandle: source
+      target: '1745466321408'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1745466895472-source-17453691870480-target
+      selected: false
+      source: '1745466895472'
+      sourceHandle: source
+      target: '17453691870480'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: variable-aggregator
+      id: 1711528915811-source-1745465671762-target
+      selected: false
+      source: '1711528915811'
+      sourceHandle: source
+      target: '1745465671762'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1745203997917-1745369079073-17453691446670-target
+      source: '1745203997917'
+      sourceHandle: '1745369079073'
+      target: '17453691446670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: variable-aggregator
+      id: 17453691446670-source-1745465671762-target
+      source: '17453691446670'
+      sourceHandle: source
+      target: '1745465671762'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: variable-aggregator
+      id: 17453695497670-source-1745465671762-target
+      source: '17453695497670'
+      sourceHandle: source
+      target: '1745465671762'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: agent
+      id: 1745254640614-source-1745464519515-target
+      source: '1745254640614'
+      sourceHandle: source
+      target: '1745464519515'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: question-classifier
+      id: 1745254640614-source-1745203997917-target
+      source: '1745254640614'
+      sourceHandle: source
+      target: '1745203997917'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1745254640614-source-1745463575728-target
+      source: '1745254640614'
+      sourceHandle: source
+      target: '1745463575728'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1745465671762-source-17452040442320-target
+      source: '1745465671762'
+      sourceHandle: source
+      target: '17452040442320'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables: []
+      height: 54
+      id: '1711528914102'
+      position:
+        x: 285.0083754372945
+        y: 652.3196088765625
+      positionAbsolute:
+        x: 285.0083754372945
+        y: 652.3196088765625
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 4oDfjl4T64S3R6id6zLcBUG2zuFs5WAehyrahK+8/8wB5TLyGq49I7p5bXAVovfk
+        desc: Allows you to query text content related to user questions from the
+          Knowledge
+        metadata_filtering_mode: disabled
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: weighted_score
+          top_k: 4
+          weights:
+            keyword_setting:
+              keyword_weight: 0
+            vector_setting:
+              embedding_model_name: text-embedding-3-large
+              embedding_provider_name: langgenius/openai/openai
+              vector_weight: 1
+        query_variable_selector:
+        - '1711528914102'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        single_retrieval_config:
+          model:
+            completion_params:
+              frequency_penalty: 0
+              max_tokens: 512
+              presence_penalty: 0
+              temperature: 0
+              top_p: 1
+            mode: chat
+            name: gpt-3.5-turbo
+            provider: openai
+        title: Knowledge Retrieval
+        type: knowledge-retrieval
+      dragging: false
+      height: 136
+      id: '1711528915811'
+      position:
+        x: 1987.991374821937
+        y: 400.15149384120866
+      positionAbsolute:
+        x: 1987.991374821937
+        y: 400.15149384120866
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1'
+          name: Use this agent when users need help navigating the stadium—finding
+            amenities like food, restrooms, entrances, or directions to their seat.
+            It's for in-stadium guidance only, not for ticket sales, event schedules,
+            or external transport.
+        - id: '1745369079073'
+          name: 'Use this agent when users ask about general travel, ticketing, or
+            cultural information related to attending football matches in Saudi Arabia.
+
+            This includes questions about visas, airport transport, match schedules,
+            stadium rules, health requirements, safety, mobile usage, and accommodation.
+
+            It is not suitable for questions about navigating inside a specific stadium
+            (e.g., finding restrooms or seats), reporting ticket fraud, or technical
+            stadium infrastructure.'
+        - id: '1745369593483'
+          name: "Use this agent when users ask about specific Saudi football clubs\
+            \ and their details.\nThis includes questions about:\nCurrent squads (goalkeepers,\
+            \ defenders, midfielders, forwards)\nHead coach or club manager\nClub\
+            \ history and founding year\nStadium name and capacity\nClub achievements\
+            \ or title counts\nLocation and status of the club (e.g., \"Big Four\"\
+            \ teams)\nExample trigger phrases:\n“Who is the coach of Al Hilal?”\n\
+            “How many titles has Al Nassr won?”\n“When was Al Ahli founded?”\n“Who\
+            \ plays in midfield for Al Ittihad?”\n Do not use this agent for:\nMatch\
+            \ schedules, ticket sales, or travel (→ use Travel & Event Info Agent)\n\
+            Stadium maps, directions, or in-stadium services (→ use Stadium Navigation\
+            \ Agent)\nPlayer transfer rumors, real-time results, or injuries (→ use\
+            \ Live Sports or News Agent if applicable)"
+        desc: ''
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: llama3.2:latest
+          provider: langgenius/ollama/ollama
+        query_variable_selector:
+        - '1711528914102'
+        - sys.query
+        selected: false
+        title: Question Classifier
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 786
+      id: '1745203997917'
+      position:
+        x: 1550
+        y: 898.5
+      positionAbsolute:
+        x: 1550
+        y: 898.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1745465671762'
+          - output
+        desc: Invoking large language models to answer questions or process natural
+          language
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params: {}
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: a4c2e631-b48a-4a5e-9a57-06013656ce1d
+          role: system
+          text: "<instructions>\nYou are a knowledgeable and reliable assistant that\
+            \ provides accurate, easy-to-understand answers about a stadium's internal\
+            \ layout, facilities, and navigation. Your goal is to help users efficiently\
+            \ find what they need inside the stadium, based strictly on the context\
+            \ provided.\n\n<context>\n{{#1745466321408.output#}}\n{{#context#}}\n\
+            </context>\n\n\U0001F9ED Task Steps:\n1. Carefully read and understand\
+            \ the user’s question. They may ask about:\n   - Locations of specific\
+            \ facilities (e.g., bathrooms, food courts, media center)\n   - Directions\
+            \ within the stadium (e.g., to their section, to the nearest entrance)\n\
+            \   - Operational areas (e.g., volunteer center, broadcast compound)\n\
+            \   - Accessibility features (e.g., accessible toilets, parking)\n\n2.\
+            \ Search the provided context for any directly relevant information.\n\
+            \   - DO NOT guess or invent locations, facility names, or directions.\n\
+            \   - DO NOT refer to gates, floors, or services not explicitly mentioned\
+            \ in the context.\n   - If the information is not in the context, politely\
+            \ say so.\n\n3. Provide a clear and concise answer using the stadium’s\
+            \ directional references (e.g., eastern side, near the northeast corner).\n\
+            \   - Be factual and grounded in the context.\n   - Use bullet points\
+            \ or structured steps if giving directions.\n   - Keep the response brief,\
+            \ accurate, and helpful.\n\n4. Maintain a polite, professional, and helpful\
+            \ tone.\n   - Do not speculate.\n   - Never include or refer to XML tags\
+            \ in your output.\n\n</instructions>\n\n<examples>\nUser: Where should\
+            \ media personnel go upon arriving at the stadium?\nAI: Media personnel\
+            \ should go to the Stadium Media Center located on the eastern side, near\
+            \ the northeast corner. Media parking is also on the eastern side, close\
+            \ to the Media Center.\n\nUser: Where can I find accessible parking and\
+            \ bathrooms?\nAI: There are 151 accessible parking spaces available near\
+            \ entrances on the north, east, south, and west sides of the stadium.\
+            \ Additionally, 28 accessible toilets are distributed across these sides,\
+            \ located near entrances and accessible seating areas.\n\nUser: Where\
+            \ is the Volunteer Center located?\nAI: The Volunteer Center is on the\
+            \ southwestern side of the stadium, near the Commercial Affiliate Village.\n\
+            \nUser: What is the stadium's nickname and what inspired it?\nAI: The\
+            \ stadium is nicknamed \"The Shining Jewel,\" inspired by its distinctive\
+            \ geometric architecture.\n\nUser: How do I get to section B3?\nAI: I'm\
+            \ sorry, but the specific location of section B3 is not provided in the\
+            \ current context. Please check with stadium staff upon arrival.\n\n</examples>\n"
+        selected: false
+        title: LLM (1)
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 150
+      id: '17452040442320'
+      position:
+        x: 2701.1334365423827
+        y: 563.9900200506348
+      positionAbsolute:
+        x: 2701.1334365423827
+        y: 563.9900200506348
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1745203634653'
+          - output
+        desc: Invoking large language models to answer questions or process natural
+          language
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params: {}
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: a4c2e631-b48a-4a5e-9a57-06013656ce1d
+          role: system
+          text: "You are a club-focused football assistant. Your job is to answer\
+            \ questions about major Saudi football clubs—Al Hilal, Al Nassr, Al Ittihad,\
+            \ and Al Ahli—using only the provided context.\n\n<context>\n{{#context#}}\
+            \  ← Insert club rosters, coaches, achievements, stadiums, history, etc.\n\
+            </context>\n\n\U0001F3AF Instructions:\n- Respond accurately, based only\
+            \ on the information provided in the context.\n- Do **not** guess, speculate,\
+            \ or pull in data not present in the context.\n- If multiple clubs are\
+            \ mentioned, respond with separate sections for each.\n- Use full names\
+            \ and team-specific details to avoid confusion.\n- If a question refers\
+            \ to missing or unknown data, say:\n  *“I’m sorry, I don’t have information\
+            \ on that at the moment.”*\n\n\U0001F9E0 Additional Notes:\n- Be clear\
+            \ and concise. Use bullet points or short paragraphs if helpful.\n- Stick\
+            \ to official names and statistics from the context.\n- Never confuse\
+            \ player rosters or achievements between clubs.\n\n\U0001F4DD Example\
+            \ QA:\n\n**User:** Who are the midfielders for Al Hilal?  \n**AI:** The\
+            \ midfielders for Al Hilal are:\n- Rúben Neves  \n- Sergej Milinković-Savić\
+            \  \n- Mohamed Kanno  \n- Salem Al Dawsari  \n- Nasser Al Dawsari  \n\
+            - Mohammed Al Qahtani\n\n**User:** What is Al Ittihad’s stadium?  \n**AI:**\
+            \ Al Ittihad plays at **King Abdullah Sports City** in Jeddah, which has\
+            \ a capacity of approximately 62,345.\n\n**User:** When was Al Ahli founded?\
+            \  \n**AI:** Al Ahli was founded in **1937** and is one of the \"Big Four\"\
+            \ clubs in Saudi football.\n\n"
+        selected: false
+        title: LLM (3)
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 150
+      id: '17452040688460'
+      position:
+        x: 2730.732155694451
+        y: 1112.2772229883021
+      positionAbsolute:
+        x: 2730.732155694451
+        y: 1112.2772229883021
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: admin
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"real_time_update","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ' (1)'
+        type: ''
+        width: 240
+      height: 88
+      id: '17452041019690'
+      position:
+        x: 1258.3606944620765
+        y: 2627.5140027093175
+      positionAbsolute:
+        x: 1258.3606944620765
+        y: 2627.5140027093175
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: admin
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"recommendation","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: '  (2)'
+        type: ''
+        width: 240
+      height: 88
+      id: '17452041081910'
+      position:
+        x: 1258.3606944620765
+        y: 2830.3522981618157
+      positionAbsolute:
+        x: 1258.3606944620765
+        y: 2830.3522981618157
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: admin
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"emergency_assistance","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: '  (2)'
+        type: ''
+        width: 240
+      height: 88
+      id: '17452041110720'
+      position:
+        x: 1258.3606944620765
+        y: 3020.188138777615
+      positionAbsolute:
+        x: 1258.3606944620765
+        y: 3020.188138777615
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: admin
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"emergency_assistance","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: '  (3)'
+        type: ''
+        width: 240
+      height: 88
+      id: '17452423767110'
+      position:
+        x: 1258.3606944620765
+        y: 3234.1109126295073
+      positionAbsolute:
+        x: 1258.3606944620765
+        y: 3234.1109126295073
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: admin
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"Language
+          Detection & Translation","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: '  (3)'
+        type: ''
+        width: 240
+      height: 88
+      id: '17452435306600'
+      position:
+        x: -130.9542784379109
+        y: 2516.4723254114692
+      positionAbsolute:
+        x: -130.9542784379109
+        y: 2516.4723254114692
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - sys
+          - query
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 178cbe42-49e3-43e0-bf6f-8e92176b5e31
+          role: system
+          text: "```xml\n<instructions>\n<context>\n{{#context#}}\n</context>\n\n\
+            <instructions>\nYou will receive a user message in any language.\n\n1.\
+            \ Detect the language.\n2. If the message is already in English, return\
+            \ it as-is.\n3. If it's not in English, translate it to English while\
+            \ keeping the meaning intact.\n4. Return only the final English sentence.\
+            \ Do not include any metadata, explanation, language info, or formatting.\n\
+            \nExamples:\n\nInput: ¿Cuál es el próximo partido?  \nOutput: What is\
+            \ the next match?\n\nInput: ما هي المباراة القادمة؟  \nOutput: What is\
+            \ the next match?\n\nInput: Quel est le prochain match ?  \nOutput: What\
+            \ is the next match?\n\nInput: What is the next match?  \nOutput: What\
+            \ is the next match?\n\nInput: Dis-moi une blague  \nOutput: Tell me a\
+            \ joke\n\nInput: قل لي نكتة  \nOutput: Tell me a joke\n</instructions>\n\
+            ```xml"
+        - id: 1b14ed91-25b0-4398-ac87-64c120247253
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: LLM 8
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1745245959056'
+      position:
+        x: 587.799816243379
+        y: 652.3196088765625
+      positionAbsolute:
+        x: 587.799816243379
+        y: 652.3196088765625
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: admin
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: ''
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1745246231341'
+      position:
+        x: 315.2268877963035
+        y: 2354.0079576443277
+      positionAbsolute:
+        x: 315.2268877963035
+        y: 2354.0079576443277
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        answer: Sorry, I didn’t quite understand your question. Could you please provide
+          more details or rephrase it?
+        desc: ''
+        selected: false
+        title: Answer 2
+        type: answer
+        variables: []
+      height: 134
+      id: '1745246341583'
+      position:
+        x: 1246
+        y: 681.3571428571429
+      positionAbsolute:
+        x: 1246
+        y: 681.3571428571429
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1'
+          name: '{{#1745245959056.text#}}The question is not related to either the
+            match or the stadium'
+        - id: '2'
+          name: '{{#1745245959056.text#}}The question it''s not clear what the user
+            is trying to ask.'
+        - id: '1745246803445'
+          name: '{{#1745245959056.text#}}The question is  related to the match or
+            the stadium.'
+        desc: ''
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: llama3.2:latest
+          provider: langgenius/ollama/ollama
+        query_variable_selector:
+        - '1745245959056'
+        - text
+        selected: false
+        title: Question Classifier 2
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 280
+      id: '1745246798936'
+      position:
+        x: 940.0000000413147
+        y: 541
+      positionAbsolute:
+        x: 940.0000000413147
+        y: 541
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: It looks like your question isn’t related to the match or the stadium.
+          I’m here to help with anything related to the event—feel free to ask about
+          tickets, schedules, teams, or stadium details!
+        desc: ''
+        selected: false
+        title: Answer 2 (1)
+        type: answer
+        variables: []
+      height: 166
+      id: '17452479923020'
+      position:
+        x: 1246
+        y: 512.9285714285714
+      positionAbsolute:
+        x: 1246
+        y: 512.9285714285714
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1745245959056'
+          - text
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: llama3.2:latest
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: df267ad8-ab17-4393-af42-d34e5a7c2a5f
+          role: system
+          text: '```xml
+
+            <instruction>
+
+            Your task is to rephrase and format the user''s question to make it clearer
+            and easier to understand, while preserving its original intent. This is
+            especially important for stadium-related questions, where users may ask
+            for directions or locations of specific facilities.
+
+
+            Follow these steps:
+
+
+            1. Read the user''s question carefully.
+
+            2. Identify the key information the user is seeking (e.g., location, directions,
+            facility names).
+
+            3. Rephrase the question in a clear, concise, and grammatically correct
+            way.
+
+            4. Simplify any informal or ambiguous language without changing the meaning.
+
+            5. Ensure the output remains a question.
+
+            6. Avoid using technical jargon or adding information that is not in the
+            original question.
+
+            7. Do not include any XML tags in your final output.
+
+
+            Your goal is to produce a well-structured, easy-to-understand question
+            that can be processed by another AI system or a human assistant.
+
+
+            </instruction>
+
+
+            <examples>
+
+            Original Question: "What''s the thing you use to control the TV?"
+
+            Rephrased Question: "What is the device used to operate a television?"
+
+
+            Original Question: "How''s the weather like in that place where the Eiffel
+            Tower is?"
+
+            Rephrased Question: "What is the current weather in Paris, where the Eiffel
+            Tower is located?"
+
+
+            Original Question: "Where do I go if I want food at the stadium?"
+
+            Rephrased Question: "Where is the nearest food station in the stadium?"
+
+
+            Original Question: "I need help finding the bathroom near section A."
+
+            Rephrased Question: "Where is the bathroom closest to section A?"
+
+
+            Original Question: "Hey, where do the volunteers check in?"
+
+            Rephrased Question: "Where is the check-in location for volunteers at
+            the stadium?"
+
+            </examples>
+
+
+            <note>
+
+            The rephrased question must retain the user''s original intent while improving
+            clarity and simplicity. It should be ready for use by an AI agent providing
+            stadium navigation or facility information.
+
+            </note>
+
+
+            ```'
+        selected: false
+        title: LLM 8
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1745254640614'
+      position:
+        x: 1246
+        y: 834.5000000000006
+      positionAbsolute:
+        x: 1246
+        y: 834.5000000000006
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: admin
+        desc: ''
+        height: 395
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"Perfect
+          — the agent is now performing exactly as intended!","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Here''s a quick confirmation of each answer:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"1.
+          Al Hilal Midfielders","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"The
+          midfielders for Al Hilal are:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Rúben
+          Neves","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Sergej
+          Milinković-Savić","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":2},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Mohamed
+          Kanno","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":3},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Salem
+          Al Dawsari","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":4},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Nasser
+          Al Dawsari","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":5},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Mohammed
+          Al Qahtani","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":6}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          100% accurate","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          according to the club roster​​.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"2.
+          Al Ittihad Home Stadium","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Al
+          Ittihad''s home stadium is the King Abdullah Sports City, also known as
+          the KASC or \"The Shining Jewel,\" located in Jeddah, Saudi Arabia.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          Correct.","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Bonus points for including the nickname “The Shining Jewel,” which is accurate
+          and contextually relevant​​.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"3.
+          Al Ahli Founding Year","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Al
+          Ahli was founded in 1937 and is one of the \"Big Four\" clubs in Saudi football.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          Correct.","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Matches perfectly with your dataset","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ' (1)'
+        type: ''
+        width: 873
+      height: 395
+      id: '17452549212920'
+      position:
+        x: 3270.963066100554
+        y: 920.5
+      positionAbsolute:
+        x: 3270.963066100554
+        y: 920.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 873
+    - data:
+        answer: '{{#17452040442320.text#}}'
+        desc: ''
+        selected: false
+        title: Answer 2 (1)
+        type: answer
+        variables: []
+      height: 104
+      id: '17453665584890'
+      position:
+        x: 3021.533375449668
+        y: 499.38366290774707
+      positionAbsolute:
+        x: 3021.533375449668
+        y: 499.38366290774707
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - Tw/XYFiwWpgRyMdG1skwSb/MZcLgerPLA3PMfnXd8+pAL01KLI76HzWBF1KcCTH/
+        desc: Allows you to query text content related to user questions from the
+          Knowledge
+        metadata_filtering_mode: disabled
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: weighted_score
+          top_k: 4
+          weights:
+            keyword_setting:
+              keyword_weight: 0
+            vector_setting:
+              embedding_model_name: text-embedding-3-large
+              embedding_provider_name: langgenius/openai/openai
+              vector_weight: 1
+        query_variable_selector:
+        - '1711528914102'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        single_retrieval_config:
+          model:
+            completion_params:
+              frequency_penalty: 0
+              max_tokens: 512
+              presence_penalty: 0
+              temperature: 0
+              top_p: 1
+            mode: chat
+            name: gpt-3.5-turbo
+            provider: openai
+        title: Knowledge Retrieval (1)
+        type: knowledge-retrieval
+      height: 136
+      id: '17453691446670'
+      position:
+        x: 1987.991374821937
+        y: 713.308965935523
+      positionAbsolute:
+        x: 1987.991374821937
+        y: 713.308965935523
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#17452040566820.text#}}'
+        desc: ''
+        selected: false
+        title: Answer 2 (2)
+        type: answer
+        variables: []
+      height: 104
+      id: '17453691870480'
+      position:
+        x: 3021.533375449668
+        y: 767.8202349526846
+      positionAbsolute:
+        x: 3021.533375449668
+        y: 767.8202349526846
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: admin
+        desc: ''
+        height: 359
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"These
+          answers are excellent!","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Here''s a quick review for each one, aligned with your agent prompt and
+          dataset:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"1.
+          Visa for German Citizens","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          Accurate and clear.","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          The eVisa system applies to Germany, and the source (visa.visitsaudi.com)
+          is correct.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"2.
+          Safety for Women Attending Alone","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          Correct and culturally appropriate.","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          It includes both safety assurance and a respectful reminder about modest
+          dress — perfectly aligned with your guidelines.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"3.
+          Bringing Snacks to the Match","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          Perfect fallback.","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Since this specific question wasn’t in the dataset, the model appropriately
+          responds with:","type":"text","version":1},{"type":"linebreak","version":1},{"detail":0,"format":2,"mode":"normal","style":"","text":"“I’m
+          sorry, I don’t have information on that…”","type":"text","version":1},{"type":"linebreak","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"This
+          shows it''s following the instruction not to hallucinate.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"4.
+          Best Airport for Jeddah Matches","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          Fully correct.","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          King Abdulaziz International Airport (JED) is the right answer, and the
+          phrasing is helpful and professional.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 709
+      height: 359
+      id: '1745369328125'
+      position:
+        x: 3270.963066100554
+        y: 512.9285714285714
+      positionAbsolute:
+        x: 3270.963066100554
+        y: 512.9285714285714
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 709
+    - data:
+        author: admin
+        desc: ''
+        height: 426
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"Perfect
+          — this is the ideal version of your answers!","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Here’s
+          a quick validation checklist for each one:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"1.
+          Media Personnel – Arrival & Parking","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✅
+          Correct:","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Precise location (eastern side, northeast corner), matches context.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"2.
+          Accessible Parking and Toilets","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✅
+          Correct:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"Accessible
+          parking:","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          151 spaces, distributed across all sides","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"Accessible
+          toilets:","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          28, near entrances and accessible seating","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":2},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Language
+          is clear, structured, and user-friendly.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":3}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"3.
+          Volunteer Center Location","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✅
+          Correct:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Location:
+          Southwestern side","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Nearby
+          facility: Commercial Affiliate Village","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":2},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Clear
+          and concise.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":3}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"4.
+          Stadium Nickname","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✅
+          Correct:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"Nickname:","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          “The Shining Jewel”","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"Inspiration:","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Distinctive geometric architecture","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":2},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"No
+          extra fluff — perfectly grounded.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":3}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 912
+      height: 426
+      id: '1745369384434'
+      position:
+        x: 3270.963066100554
+        y: 37.682435523210415
+      positionAbsolute:
+        x: 3270.963066100554
+        y: 37.682435523210415
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 912
+    - data:
+        dataset_ids:
+        - OFzdXkJK0d4QHzd3O/NtiDYr5JslakKDOh5/ITByXT1pHGIPgL/ilNtlRHS5BHL+
+        desc: Allows you to query text content related to user questions from the
+          Knowledge
+        metadata_filtering_mode: disabled
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: weighted_score
+          top_k: 4
+          weights:
+            keyword_setting:
+              keyword_weight: 0
+            vector_setting:
+              embedding_model_name: text-embedding-3-large
+              embedding_provider_name: langgenius/openai/openai
+              vector_weight: 1
+        query_variable_selector:
+        - '1711528914102'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        single_retrieval_config:
+          model:
+            completion_params:
+              frequency_penalty: 0
+              max_tokens: 512
+              presence_penalty: 0
+              temperature: 0
+              top_p: 1
+            mode: chat
+            name: gpt-3.5-turbo
+            provider: openai
+        title: Knowledge Retrieval (2)
+        type: knowledge-retrieval
+      height: 136
+      id: '17453695497670'
+      position:
+        x: 1987.991374821937
+        y: 891.6025738168086
+      positionAbsolute:
+        x: 1987.991374821937
+        y: 891.6025738168086
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#17452040688460.text#}}'
+        desc: ''
+        selected: false
+        title: Answer 2 (3)
+        type: answer
+        variables: []
+      height: 104
+      id: '17453696298410'
+      position:
+        x: 3021.533375449668
+        y: 1112.2772229883021
+      positionAbsolute:
+        x: 3021.533375449668
+        y: 1112.2772229883021
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: '%Y-%m-%d %H:%M:%S'
+          form: form
+          human_description:
+            en_US: Time format in strftime standard.
+            ja_JP: Time format in strftime standard.
+            pt_BR: Time format in strftime standard.
+            zh_Hans: strftime 标准的时间格式。
+          label:
+            en_US: Format
+            ja_JP: Format
+            pt_BR: Format
+            zh_Hans: 格式
+          llm_description: null
+          max: null
+          min: null
+          name: format
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: UTC
+          form: form
+          human_description:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          label:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          llm_description: null
+          max: null
+          min: null
+          name: timezone
+          options:
+          - label:
+              en_US: UTC
+              ja_JP: UTC
+              pt_BR: UTC
+              zh_Hans: UTC
+            value: UTC
+          - label:
+              en_US: America/New_York
+              ja_JP: America/New_York
+              pt_BR: America/New_York
+              zh_Hans: 美洲/纽约
+            value: America/New_York
+          - label:
+              en_US: America/Los_Angeles
+              ja_JP: America/Los_Angeles
+              pt_BR: America/Los_Angeles
+              zh_Hans: 美洲/洛杉矶
+            value: America/Los_Angeles
+          - label:
+              en_US: America/Chicago
+              ja_JP: America/Chicago
+              pt_BR: America/Chicago
+              zh_Hans: 美洲/芝加哥
+            value: America/Chicago
+          - label:
+              en_US: America/Sao_Paulo
+              ja_JP: America/Sao_Paulo
+              pt_BR: América/São Paulo
+              zh_Hans: 美洲/圣保罗
+            value: America/Sao_Paulo
+          - label:
+              en_US: Asia/Shanghai
+              ja_JP: Asia/Shanghai
+              pt_BR: Asia/Shanghai
+              zh_Hans: 亚洲/上海
+            value: Asia/Shanghai
+          - label:
+              en_US: Asia/Ho_Chi_Minh
+              ja_JP: Asia/Ho_Chi_Minh
+              pt_BR: Ásia/Ho Chi Minh
+              zh_Hans: 亚洲/胡志明市
+            value: Asia/Ho_Chi_Minh
+          - label:
+              en_US: Asia/Tokyo
+              ja_JP: Asia/Tokyo
+              pt_BR: Asia/Tokyo
+              zh_Hans: 亚洲/东京
+            value: Asia/Tokyo
+          - label:
+              en_US: Asia/Dubai
+              ja_JP: Asia/Dubai
+              pt_BR: Asia/Dubai
+              zh_Hans: 亚洲/迪拜
+            value: Asia/Dubai
+          - label:
+              en_US: Asia/Kolkata
+              ja_JP: Asia/Kolkata
+              pt_BR: Asia/Kolkata
+              zh_Hans: 亚洲/加尔各答
+            value: Asia/Kolkata
+          - label:
+              en_US: Asia/Seoul
+              ja_JP: Asia/Seoul
+              pt_BR: Asia/Seoul
+              zh_Hans: 亚洲/首尔
+            value: Asia/Seoul
+          - label:
+              en_US: Asia/Singapore
+              ja_JP: Asia/Singapore
+              pt_BR: Asia/Singapore
+              zh_Hans: 亚洲/新加坡
+            value: Asia/Singapore
+          - label:
+              en_US: Europe/London
+              ja_JP: Europe/London
+              pt_BR: Europe/London
+              zh_Hans: 欧洲/伦敦
+            value: Europe/London
+          - label:
+              en_US: Europe/Berlin
+              ja_JP: Europe/Berlin
+              pt_BR: Europe/Berlin
+              zh_Hans: 欧洲/柏林
+            value: Europe/Berlin
+          - label:
+              en_US: Europe/Moscow
+              ja_JP: Europe/Moscow
+              pt_BR: Europe/Moscow
+              zh_Hans: 欧洲/莫斯科
+            value: Europe/Moscow
+          - label:
+              en_US: Australia/Sydney
+              ja_JP: Australia/Sydney
+              pt_BR: Australia/Sydney
+              zh_Hans: 澳大利亚/悉尼
+            value: Australia/Sydney
+          - label:
+              en_US: Pacific/Auckland
+              ja_JP: Pacific/Auckland
+              pt_BR: Pacific/Auckland
+              zh_Hans: 太平洋/奥克兰
+            value: Pacific/Auckland
+          - label:
+              en_US: Africa/Cairo
+              ja_JP: Africa/Cairo
+              pt_BR: Africa/Cairo
+              zh_Hans: 非洲/开罗
+            value: Africa/Cairo
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          format: ''
+          timezone: ''
+        provider_id: time
+        provider_name: time
+        provider_type: builtin
+        selected: false
+        title: Current Time
+        tool_configurations:
+          format: '%Y-%m-%d %H:%M:%S'
+          timezone: Asia/Dubai
+        tool_label: Current Time
+        tool_name: current_time
+        tool_parameters: {}
+        type: tool
+      height: 116
+      id: '1745463575728'
+      position:
+        x: 1550
+        y: 462.4317454832089
+      positionAbsolute:
+        x: 1550
+        y: 462.4317454832089
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        agent_parameters:
+          instruction:
+            type: constant
+            value: '{{#1745254640614.text#}}search'
+          model:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: gpt-4o
+              model_type: llm
+              provider: langgenius/openai/openai
+              type: model-selector
+          query:
+            type: constant
+            value: '{{#1745245959056.text#}}'
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: ''
+              parameters:
+                query:
+                  auto: 1
+                  value: null
+              provider_name: langgenius/google/google
+              schemas:
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: used for searching
+                  ja_JP: used for searching
+                  pt_BR: used for searching
+                  zh_Hans: 用于搜索网页内容
+                label:
+                  en_US: Query string
+                  ja_JP: Query string
+                  pt_BR: Query string
+                  zh_Hans: 查询语句
+                llm_description: key words for searching
+                max: null
+                min: null
+                name: query
+                options: []
+                placeholder: null
+                precision: null
+                required: true
+                scope: null
+                template: null
+                type: string
+              settings: {}
+              tool_label: GoogleSearch
+              tool_name: google_search
+              type: builtin
+        agent_strategy_label: ReAct
+        agent_strategy_name: ReAct
+        agent_strategy_provider_name: langgenius/agent/agent
+        desc: ''
+        output_schema: null
+        plugin_unique_identifier: langgenius/agent:0.0.14@26958a0e80a10655ce73812bdb7c35a66ce7b16f5ac346d298bda17ff85efd1e
+        selected: false
+        title: Agent
+        type: agent
+      height: 198
+      id: '1745464519515'
+      position:
+        x: 1550
+        y: 646.6380241082807
+      positionAbsolute:
+        x: 1550
+        y: 646.6380241082807
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        advanced_settings:
+          group_enabled: false
+          groups:
+          - groupId: 9a62307d-7303-4e11-b3d7-5697e464aa41
+            group_name: Group1
+            output_type: array[object]
+            variables:
+            - - '1711528915811'
+              - result
+            - - '1745464519515'
+              - json
+            - - '1745463575728'
+              - json
+            - - '17453691446670'
+              - result
+            - - '17453695497670'
+              - result
+        desc: ''
+        output_type: array[object]
+        selected: false
+        title: Variable Aggregator
+        type: variable-aggregator
+        variables:
+        - - '1711528915811'
+          - result
+        - - '1745464519515'
+          - json
+        - - '1745463575728'
+          - json
+        - - '17453691446670'
+          - result
+        - - '17453695497670'
+          - result
+      height: 196
+      id: '1745465671762'
+      position:
+        x: 2350.623056339366
+        y: 588.2414851148011
+      positionAbsolute:
+        x: 2350.623056339366
+        y: 588.2414851148011
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "{{ arg1 }}\r\n{{ arg2 }}\r\n"
+        title: Template
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1745464519515'
+          - text
+          variable: arg1
+        - value_selector:
+          - '1745463575728'
+          - text
+          variable: arg2
+      height: 54
+      id: '1745466321408'
+      position:
+        x: 1987.991374821937
+        y: 588.2414851148011
+      positionAbsolute:
+        x: 1987.991374821937
+        y: 588.2414851148011
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: d7a4b599-47c6-431c-ad46-f44f0d042502
+          role: system
+          text: "You are a helpful and knowledgeable assistant providing accurate\
+            \ information to people attending football matches in Saudi Arabia. Your\
+            \ role is to answer questions about travel, tickets, stadium policies,\
+            \ cultural expectations, transportation, accommodation, and event-related\
+            \ logistics.\n\nUse only the information provided in the context below.\
+            \ Do not guess or invent details. If a user asks something that is not\
+            \ included in the context, politely let them know you don’t have that\
+            \ information.\n\n<context>\n{{#context#}}  ← This will be filled with\
+            \ the travel & event FAQ dataset\n</context>\n\n✅ Guidelines:\n- Answer\
+            \ clearly and concisely.\n- Match the tone of an official travel or event\
+            \ support representative: polite, informative, and culturally respectful.\n\
+            - Do not answer questions related to stadium layout, in-stadium amenities,\
+            \ or navigation inside specific venues. These should be handled by the\
+            \ Stadium Navigation Agent.\n- If a question relates to tickets, transportation,\
+            \ safety, etiquette, teams, or logistics, you may proceed.\n- If a topic\
+            \ is not covered in the context, say:  \n  *“I’m sorry, I don’t have information\
+            \ on that. Please check with the official event organizers or stadium\
+            \ staff for assistance.”*\n\n\U0001F9FE Example Interactions:\n\n**User:**\
+            \ Do I need a visa to attend a match in Jeddah?  \n**AI:** Yes, most visitors\
+            \ need a visa. You can apply for a tourist eVisa online via https://visa.visitsaudi.com.\
+            \ Citizens of eligible countries can receive approval within minutes.\n\
+            \n**User:** Can women attend football matches alone?  \n**AI:** Yes, women\
+            \ can travel independently and attend football matches in Saudi Arabia.\
+            \ Just be sure to dress modestly and respect cultural guidelines.\n\n\
+            **User:** Where can I buy a ticket for the Saudi Pro League?  \n**AI:**\
+            \ Tickets are available at https://ticketmx.com or through club websites.\
+            \ It’s best to buy early, as major matches can sell out quickly.\n\n**User:**\
+            \ How do I get from the airport to the stadium?  \n**AI:** Ride-hailing\
+            \ apps like Uber and Careem are widely available. In Jeddah, fly into\
+            \ King Abdulaziz International Airport (JED) and use local transport to\
+            \ reach the stadium."
+        selected: false
+        title: LLM 6
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1745466895472'
+      position:
+        x: 2701.1334365423827
+        y: 750.6380241082803
+      positionAbsolute:
+        x: 2701.1334365423827
+        y: 750.6380241082803
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 162.14677762269446
+      y: 34.51739351627279
+      zoom: 0.43527528164806334
