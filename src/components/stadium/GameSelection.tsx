@@ -45,9 +45,18 @@ const upcomingGames: Game[] = [
 const GameSelection: React.FC<Props> = ({ onSelectGame }) => {
   const { language } = useAppContext();
   
+  // Helper function for localized text
+  const getText = (en: string, ar: string, es: string) => {
+    if (language === "en") return en;
+    if (language === "ar") return ar;
+    if (language === "es") return es;
+    return en; // Default to English
+  };
+
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
-    return new Intl.DateTimeFormat(language === "en" ? "en-US" : "ar-SA", {
+    // Add es-ES locale for date formatting
+    return new Intl.DateTimeFormat(language === "en" ? "en-US" : language === "ar" ? "ar-SA" : "es-ES", {
       year: "numeric",
       month: "long",
       day: "numeric"
@@ -57,7 +66,8 @@ const GameSelection: React.FC<Props> = ({ onSelectGame }) => {
   return (
     <section className="my-8 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
       <h2 className="text-2xl font-bold mb-4 text-center">
-        {language === "en" ? "Select Your Game" : "اختر المباراة"}
+        {/* Use getText for title */}
+        {getText("Select Your Game", "اختر المباراة", "Selecciona Tu Partido")}
       </h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -80,18 +90,21 @@ const GameSelection: React.FC<Props> = ({ onSelectGame }) => {
                 <div className="flex justify-between items-center">
                   <span className="font-bold text-lg">{game.homeTeam}</span>
                   <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
-                    {language === "en" ? "Home" : "المضيف"}
+                    {/* Use getText for Home label */}
+                    {getText("Home", "المضيف", "Local")}
                   </span>
                 </div>
                 <div className="flex justify-center">
                   <span className="bg-muted text-muted-foreground px-4 py-1 rounded-full text-xs">
-                    {language === "en" ? "VS" : "ضد"}
+                    {/* Use getText for VS label */}
+                    {getText("VS", "ضد", "VS")}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="font-bold text-lg">{game.awayTeam}</span>
                   <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                    {language === "en" ? "Away" : "الضيف"}
+                    {/* Use getText for Away label */}
+                    {getText("Away", "الضيف", "Visitante")}
                   </span>
                 </div>
                 <div className="mt-3 pt-3 border-t border-border text-center text-sm text-muted-foreground">

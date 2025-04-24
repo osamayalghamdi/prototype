@@ -36,7 +36,7 @@ import { difyConfig } from "../config/difyConfig";
 const stadiumImages: Record<string, string> = {
   "King Fahd Stadium": "/al-thumama-stadium.png",
   "King Abdullah Sports City": "/123.jpg",
-  "Prince Faisal bin Fahd Stadium": "/placeholder.svg",
+  "Prince Faisal bin Fahd Stadium": "/placeholder.png",
 };
 
 const StadiumNavigation: React.FC<{ selectedGame: Game; seatInfo: { section: string; row: string; seatNumber: string } }> = ({ selectedGame, seatInfo }) => {
@@ -109,9 +109,11 @@ const StadiumNavigation: React.FC<{ selectedGame: Game; seatInfo: { section: str
               {seatInfo.section && (
                 <p className="text-sm text-white/80 mt-2">
                   {
-                    language === "en" ? `Section ${seatInfo.section}, Row ${seatInfo.row}, Seat ${seatInfo.seatNumber}` :
-                    language === "ar" ? `القسم ${seatInfo.section}، الصف ${seatInfo.row}، المقعد ${seatInfo.seatNumber}` :
-                    `Sección ${seatInfo.section}, Fila ${seatInfo.row}, Asiento ${seatInfo.seatNumber}`
+                    getText(
+                      `Section ${seatInfo.section}, Row ${seatInfo.row}, Seat ${seatInfo.seatNumber}`,
+                      `القسم ${seatInfo.section}، الصف ${seatInfo.row}، المقعد ${seatInfo.seatNumber}`,
+                      `Sección ${seatInfo.section}, Fila ${seatInfo.row}, Asiento ${seatInfo.seatNumber}`
+                    )
                   }
                 </p>
               )}
@@ -133,15 +135,11 @@ const StadiumNavigation: React.FC<{ selectedGame: Game; seatInfo: { section: str
                     {activeTab === "seat" && <MapPin className="h-6 w-6" />}
                     {activeTab === "games" && <Calendar className="h-6 w-6" />}
                     {
-                      language === "en" ? (
+                      getText(
                         activeTab === "map" ? "Stadium Map" :
-                        activeTab === "seat" ? "Find Your Seat" : "Today's Games"
-                      ) :
-                      language === "ar" ? (
+                        activeTab === "seat" ? "Find Your Seat" : "Today's Games",
                         activeTab === "map" ? "خريطة الملعب" :
-                        activeTab === "seat" ? "ابحث عن مقعدك" : "مباريات اليوم"
-                      ) :
-                      (
+                        activeTab === "seat" ? "ابحث عن مقعدك" : "مباريات اليوم",
                         activeTab === "map" ? "Mapa del Estadio" :
                         activeTab === "seat" ? "Encuentra Tu Asiento" : "Partidos de Hoy"
                       )
@@ -182,9 +180,11 @@ const StadiumNavigation: React.FC<{ selectedGame: Game; seatInfo: { section: str
                   {/* Display located seat info */}
                   <div className="p-4 bg-card rounded-lg shadow-sm text-center border border-gray-300">
                     {
-                      language === "en" ? `Section ${seatInfo.section}, Row ${seatInfo.row}, Seat ${seatInfo.seatNumber}` :
-                      language === "ar" ? `القسم ${seatInfo.section}، الصف ${seatInfo.row}، المقعد ${seatInfo.seatNumber}` :
-                      `Sección ${seatInfo.section}, Fila ${seatInfo.row}, Asiento ${seatInfo.seatNumber}`
+                      getText(
+                        `Section ${seatInfo.section}, Row ${seatInfo.row}, Seat ${seatInfo.seatNumber}`,
+                        `القسم ${seatInfo.section}، الصف ${seatInfo.row}، المقعد ${seatInfo.seatNumber}`,
+                        `Sección ${seatInfo.section}, Fila ${seatInfo.row}, Asiento ${seatInfo.seatNumber}`
+                      )
                     }
                   </div>
                 </TabsContent>
@@ -299,13 +299,17 @@ const StadiumNavigation: React.FC<{ selectedGame: Game; seatInfo: { section: str
                 <span className="bg-blue-600 text-white rounded-full p-1.5 mr-2">
                   <MessageSquare size={18} />
                 </span>
-                {getText("Midan", "ميدان", "Midan")}
+                <img 
+                  src="/midan-logo.png" 
+                  alt="Midan" 
+                  className="h-6 object-contain" 
+                />
               </h2>
 
-              {/* Revert to iframe until DifyChat is properly configured */}
+              {/* Updated iframe with new Dify chat URL */}
               <div className="h-[700px] w-full border border-gray-300 rounded-lg overflow-hidden">
                 <iframe
-                  src="http://localhost/chatbot/lfOJXcxIw45Yvfui"
+                  src="https://udify.app/chat/5cClLtF8XorKBVZu" // Updated URL
                   style={{ width: "100%", height: "100%", minHeight: "700px" }}
                   frameBorder="0"
                   allow="microphone">
@@ -377,6 +381,11 @@ const Index: React.FC = () => {
   if (!langSelected) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-background">
+        <img 
+          src="/midan-logo.png" 
+          alt="Midan - Stadium Assistant" 
+          className="w-48 mb-8 object-contain" 
+        />
         <h1 className="text-3xl font-bold mb-6">Select Language / اختر اللغة / Seleccione Idioma</h1>
         <div className="flex flex-wrap gap-4 justify-center">
           <button

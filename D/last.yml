@@ -1,0 +1,2119 @@
+app:
+  description: ''
+  icon: 📑
+  icon_background: '#EFF1F5'
+  mode: advanced-chat
+  name: 'Knowledge Retreival + Chatbot '
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.0.19@6b2b2e115b1b9d34a63eb26fadcc33d74330fd2ec06071bb30b8a24b1fab107a
+kind: app
+version: 0.2.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions: []
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - remote_url
+      - local_file
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 1
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: true
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: answer
+      id: 1745246798936-2-1745246341583-target
+      selected: false
+      source: '1745246798936'
+      sourceHandle: '2'
+      target: '1745246341583'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1745246798936-1745246803445-1745254640614-target
+      selected: false
+      source: '1745246798936'
+      sourceHandle: '1745246803445'
+      target: '1745254640614'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: answer
+      id: 1745246798936-1-17452479923020-target
+      selected: false
+      source: '1745246798936'
+      sourceHandle: '1'
+      target: '17452479923020'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1745203997917-1-1711528915811-target
+      selected: false
+      source: '1745203997917'
+      sourceHandle: '1'
+      target: '1711528915811'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 17452040442320-source-17453665584890-target
+      selected: false
+      source: '17452040442320'
+      sourceHandle: source
+      target: '17453665584890'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1745203997917-1745369593483-17453695497670-target
+      selected: false
+      source: '1745203997917'
+      sourceHandle: '1745369593483'
+      target: '17453695497670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: question-classifier
+      id: 1745245959056-source-1745246798936-target
+      selected: false
+      source: '1745245959056'
+      sourceHandle: source
+      target: '1745246798936'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: agent
+        targetType: template-transform
+      id: 1745464519515-source-1745466321408-target
+      selected: false
+      source: '1745464519515'
+      sourceHandle: source
+      target: '1745466321408'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1745466321408-source-1745465671762-target
+      selected: false
+      source: '1745466321408'
+      sourceHandle: source
+      target: '1745465671762'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: variable-aggregator
+      id: 1711528915811-source-1745465671762-target
+      selected: false
+      source: '1711528915811'
+      sourceHandle: source
+      target: '1745465671762'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1745203997917-1745369079073-17453691446670-target
+      selected: false
+      source: '1745203997917'
+      sourceHandle: '1745369079073'
+      target: '17453691446670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: variable-aggregator
+      id: 17453691446670-source-1745465671762-target
+      selected: false
+      source: '17453691446670'
+      sourceHandle: source
+      target: '1745465671762'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: variable-aggregator
+      id: 17453695497670-source-1745465671762-target
+      selected: false
+      source: '17453695497670'
+      sourceHandle: source
+      target: '1745465671762'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: question-classifier
+      id: 1745254640614-source-1745203997917-target
+      selected: false
+      source: '1745254640614'
+      sourceHandle: source
+      target: '1745203997917'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1745465671762-source-17452040442320-target
+      selected: false
+      source: '1745465671762'
+      sourceHandle: source
+      target: '17452040442320'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1745203997917-1-17454949957150-target
+      selected: false
+      source: '1745203997917'
+      sourceHandle: '1'
+      target: '17454949957150'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: variable-aggregator
+      id: 17454949957150-source-1745465671762-target
+      selected: false
+      source: '17454949957150'
+      sourceHandle: source
+      target: '1745465671762'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1711528914102-source-1745245959056-target
+      selected: false
+      source: '1711528914102'
+      sourceHandle: source
+      target: '1745245959056'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1745522986136-source-1745465671762-target
+      selected: false
+      source: '1745522986136'
+      sourceHandle: source
+      target: '1745465671762'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: template-transform
+      id: 1745526552920-true-1745522986136-target
+      selected: false
+      source: '1745526552920'
+      sourceHandle: 'true'
+      target: '1745522986136'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: if-else
+      id: 1745246798936-1745246803445-1745526552920-target
+      selected: false
+      source: '1745246798936'
+      sourceHandle: '1745246803445'
+      target: '1745526552920'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: agent
+      id: 1745528936079-source-1745464519515-target
+      selected: false
+      source: '1745528936079'
+      sourceHandle: source
+      target: '1745464519515'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: assigner
+        targetType: variable-aggregator
+      id: 1745529205276-source-1745528936079-target
+      selected: false
+      source: '1745529205276'
+      sourceHandle: source
+      target: '1745528936079'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: agent
+      id: 1745530093157-source-1745464519515-target
+      selected: false
+      source: '1745530093157'
+      sourceHandle: source
+      target: '1745464519515'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: assigner
+      id: 1745254640614-source-1745529205276-target
+      selected: false
+      source: '1745254640614'
+      sourceHandle: source
+      target: '1745529205276'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: agent
+      id: 1745532970036-source-1745464519515-target
+      source: '1745532970036'
+      sourceHandle: source
+      target: '1745464519515'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables: []
+      height: 54
+      id: '1711528914102'
+      position:
+        x: 183.55495542752533
+        y: 724.2254630718141
+      positionAbsolute:
+        x: 183.55495542752533
+        y: 724.2254630718141
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - wc0UDkD8YmOM8h1fbFTgocmu5GE/Il0snfCtkekO/stDlc6B9YbS4UlhmESNSEXc
+        desc: Allows you to query text content related to user questions from the
+          Knowledge
+        metadata_filtering_mode: disabled
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: ''
+            provider: ''
+          top_k: 4
+          weights:
+            keyword_setting:
+              keyword_weight: 0
+            vector_setting:
+              embedding_model_name: text-embedding-3-large
+              embedding_provider_name: langgenius/openai/openai
+              vector_weight: 1
+        query_variable_selector:
+        - '1711528914102'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        single_retrieval_config:
+          model:
+            completion_params:
+              frequency_penalty: 0
+              max_tokens: 512
+              presence_penalty: 0
+              temperature: 0
+              top_p: 1
+            mode: chat
+            name: gpt-3.5-turbo
+            provider: openai
+        title: Knowledge Retrieval King Abdullah Staduim
+        type: knowledge-retrieval
+      dragging: false
+      height: 152
+      id: '1711528915811'
+      position:
+        x: 1937.997860451695
+        y: 400.15149384120866
+      positionAbsolute:
+        x: 1937.997860451695
+        y: 400.15149384120866
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1'
+          name: 'Provide information on in-stadium navigation, including:
+
+
+            * Location of amenities such as food, restrooms, entrances
+
+            * Directions to seats, stands, and concourses
+
+            * Information on stadium layout and maps (for guidance only)
+
+
+            Trigger phrases: e.g. "Where can I find the restrooms?" or "How do I get 
+
+            to my seat?"'
+        - id: '1745369079073'
+          name: 'Provide information on general questions for example  travel and
+            cultural aspects related to 
+
+            attending football matches in Saudi Arabia.
+
+
+            Trigger phrases: e.g. "What visas do I need for Al Hilal?" or "How can
+            I get to the airport for a match?"'
+        - id: '1745369593483'
+          name: 'Provide information on Saudi football clubs, including squad details, 
+
+            coaches, history, achievements, and location.'
+        desc: ''
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        query_variable_selector:
+        - '1711528914102'
+        - sys.query
+        selected: false
+        title: Question Classifier
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 482
+      id: '1745203997917'
+      position:
+        x: 1556.8118346433903
+        y: 617.8412813120166
+      positionAbsolute:
+        x: 1556.8118346433903
+        y: 617.8412813120166
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1745466321408'
+          - output
+        desc: Invoking large language models to answer questions or process natural
+          language
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params: {}
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: a4c2e631-b48a-4a5e-9a57-06013656ce1d
+          role: system
+          text: "<instructions>\nYou are a knowledgeable assistant for visitors to\
+            \ Saudi Arabian football stadiums. Your answers must:\n\n<context>\n{{#context#}}\n\
+            </context>\n\n<user>\nAlways answer in the language of the user's query,\
+            \ with precise, factual information from the context provided.{{#1745522986136.output#}}\n\
+            </user>\n1. Reflect Saudi cultural values and norms while being welcoming\
+            \ to international visitors\n2. Provide accurate, context-based navigation\
+            \ help for stadiums including:\n   - Prayer room locations and prayer\
+            \ time accommodations\n   - Family section locations and policies\n  \
+            \ - VIP and royal box protocols when appropriate\n   - Accessible facilities\
+            \ according to Saudi standards\n\n\n3. When describing directions:\n \
+            \  - Use clear cardinal directions (North, East) supplemented by landmarks\n\
+            \   - Reference gate numbers using both English numerals and Arabic equivalents\
+            \ when available\n   - Mention proximity to prayer facilities as helpful\
+            \ navigation markers\n\n\n4. Always maintain appropriate tone:\n   - Respectful\
+            \ address using honorifics when appropriate\n   - Avoid suggesting behaviors\
+            \ that contradict local customs\n   - Acknowledge religious considerations\
+            \ like prayer times when relevant to scheduling\n   - Ensure all responses\
+            \ could be comfortably read aloud in public settings\n\n\n5. For international\
+            \ visitors, provide subtle context for Saudi-specific facilities or customs\n\
+            \n\n\n</instructions>"
+        selected: false
+        title: LLM (1)
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 150
+      id: '17452040442320'
+      position:
+        x: 2687.232063245495
+        y: 588.2414851148011
+      positionAbsolute:
+        x: 2687.232063245495
+        y: 588.2414851148011
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - sys
+          - query
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 178cbe42-49e3-43e0-bf6f-8e92176b5e31
+          role: system
+          text: '```xml
+
+            <instructions>
+
+            You will receive user messages in any language, with special attention
+            to Arabic and English.
+
+            <context>
+
+            {{#context#}}
+
+            </context>
+
+
+
+            1. Detect the language with high accuracy, especially distinguishing between
+            formal Arabic (فصحى) and Saudi dialects (لهجة سعودية).
+
+            2. If in English, return as-is.
+
+            3. If in Arabic or any other language, translate to English while preserving
+            cultural references, football terminology, and Saudi-specific location
+            terms.
+
+            4. For specific Saudi stadium terms without direct English equivalents
+            (مدرج الشرفية, قيصرية, etc.), retain the Arabic term in parentheses after
+            the translation.
+
+
+
+            Keep responses clear and culturally appropriate for a Saudi audience.
+
+            </instructions>
+
+            ```xml'
+        - id: 1b14ed91-25b0-4398-ac87-64c120247253
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: LLM 8
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1745245959056'
+      position:
+        x: 479.0172714454774
+        y: 724.2254630718141
+      positionAbsolute:
+        x: 479.0172714454774
+        y: 724.2254630718141
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: Sorry, I didn’t quite understand your question. Could you please provide
+          more details or rephrase it?
+        desc: ''
+        selected: false
+        title: Answer 2
+        type: answer
+        variables: []
+      height: 134
+      id: '1745246341583'
+      position:
+        x: 1171.7802630873832
+        y: 768.3684939245547
+      positionAbsolute:
+        x: 1171.7802630873832
+        y: 768.3684939245547
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1'
+          name: '{{#1745245959056.text#}}not related'
+        - id: '2'
+          name: "{{#1745245959056.text#}}Classify user questions carefully.\n  Only\
+            \ mark as \"unclear\" if:\n  - The question is completely unintelligible\n\
+            \  - Contains only 1-2 words without clear meaning\n  - Has conflicting\
+            \ requests in the same question\n  - Is severely grammatically broken\
+            \ making intent impossible to determine\n  \n  When in doubt between \"\
+            unclear\" and \"stadium-related,\" prefer classifying as stadium-related."
+        - id: '1745246803445'
+          name: '{{#1745245959056.text#}}he question relates to ANY of the following:
+            stadium facilities (including prayer rooms, family sections, VIP lounges),
+            match schedules, Saudi Pro League teams, national team players, Islamic
+            customs at venues, ticket purchasing options (including Absher/SAFF validation),
+            stadium accessibility, food vendor options (including halal distinctions),
+            transportation to venues (including special event shuttles), or any topic
+            that a stadium host in Saudi Arabia would be expected to address or anything
+            that related to saudi rabia league.'
+        desc: ''
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.9
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        query_variable_selector:
+        - '1745245959056'
+        - text
+        selected: false
+        title: Question Classifier 2
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 618
+      id: '1745246798936'
+      position:
+        x: 789.892020168814
+        y: 543.7054938530888
+      positionAbsolute:
+        x: 789.892020168814
+        y: 543.7054938530888
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: It looks like your question isn’t related to the match or the stadium.
+          I’m here to help with anything related to the event—feel free to ask about
+          tickets, schedules, teams, or stadium details!
+        desc: ''
+        selected: false
+        title: Answer 2 (1)
+        type: answer
+        variables: []
+      height: 182
+      id: '17452479923020'
+      position:
+        x: 1171.7802630873832
+        y: 976.3723807967802
+      positionAbsolute:
+        x: 1171.7802630873832
+        y: 976.3723807967802
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1745246798936'
+          - class_name
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: df267ad8-ab17-4393-af42-d34e5a7c2a5f
+          role: system
+          text: '```xml
+
+            <instruction>
+
+            Your task is to rephrase user questions about Saudi stadiums to be clear
+            and culturally appropriate, while preserving original intent.
+
+            <context>
+
+            {{#context#}}
+
+            </context>
+
+
+            Important considerations:
+
+            - Maintain respectful language suitable for Saudi cultural context
+
+            - Preserve references to specific Saudi stadium sections (like Family
+            Seating "العائلات")
+
+            - Handle Arabic terms for stadium facilities accurately
+
+            - Format questions clearly for stadium navigation assistance
+
+            - Ensure terms for prayer facilities, gender-specific areas, and VIP sections
+            are properly contextualized
+
+            - Retain honorifics and formal address when present in the original question
+
+
+
+            Output only the reformulated question without explanations.
+
+            </instruction>
+
+
+            ```'
+        selected: false
+        title: Structure LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1745254640614'
+      position:
+        x: 1171.7802630873832
+        y: 475.56022705525174
+      positionAbsolute:
+        x: 1171.7802630873832
+        y: 475.56022705525174
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: admin
+        desc: ''
+        height: 395
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"Perfect
+          — the agent is now performing exactly as intended!","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Here''s a quick confirmation of each answer:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"1.
+          Al Hilal Midfielders","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"The
+          midfielders for Al Hilal are:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Rúben
+          Neves","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Sergej
+          Milinković-Savić","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":2},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Mohamed
+          Kanno","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":3},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Salem
+          Al Dawsari","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":4},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Nasser
+          Al Dawsari","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":5},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Mohammed
+          Al Qahtani","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":6}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          100% accurate","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          according to the club roster​​.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"2.
+          Al Ittihad Home Stadium","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Al
+          Ittihad''s home stadium is the King Abdullah Sports City, also known as
+          the KASC or \"The Shining Jewel,\" located in Jeddah, Saudi Arabia.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          Correct.","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Bonus points for including the nickname “The Shining Jewel,” which is accurate
+          and contextually relevant​​.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"3.
+          Al Ahli Founding Year","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Al
+          Ahli was founded in 1937 and is one of the \"Big Four\" clubs in Saudi football.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          Correct.","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Matches perfectly with your dataset","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ' (1)'
+        type: ''
+        width: 873
+      height: 395
+      id: '17452549212920'
+      position:
+        x: 3314.2232885966523
+        y: 890.2178442527313
+      positionAbsolute:
+        x: 3314.2232885966523
+        y: 890.2178442527313
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 873
+    - data:
+        answer: '{{#17452040442320.text#}}'
+        desc: ''
+        selected: false
+        title: Answer 2 (1)
+        type: answer
+        variables: []
+      height: 105
+      id: '17453665584890'
+      position:
+        x: 3006.239341021356
+        y: 588.2414851148011
+      positionAbsolute:
+        x: 3006.239341021356
+        y: 588.2414851148011
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - kOKYedenevSZor/Qkm5+T1xXue5V0robhvZSDFyMzInQKMu0SIXUEyd2iu1gIwcR
+        desc: Allows you to query text content related to user questions from the
+          Knowledge
+        metadata_filtering_mode: disabled
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: ''
+            provider: ''
+          top_k: 4
+          weights:
+            keyword_setting:
+              keyword_weight: 0
+            vector_setting:
+              embedding_model_name: text-embedding-3-large
+              embedding_provider_name: langgenius/openai/openai
+              vector_weight: 1
+        query_variable_selector:
+        - '1711528914102'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        single_retrieval_config:
+          model:
+            completion_params:
+              frequency_penalty: 0
+              max_tokens: 512
+              presence_penalty: 0
+              temperature: 0
+              top_p: 1
+            mode: chat
+            name: gpt-3.5-turbo
+            provider: openai
+        title: Knowledge Retrieval General
+        type: knowledge-retrieval
+      height: 152
+      id: '17453691446670'
+      position:
+        x: 1937.997860451695
+        y: 693.5599983756542
+      positionAbsolute:
+        x: 1937.997860451695
+        y: 693.5599983756542
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: admin
+        desc: ''
+        height: 359
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"These
+          answers are excellent!","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Here''s a quick review for each one, aligned with your agent prompt and
+          dataset:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"1.
+          Visa for German Citizens","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          Accurate and clear.","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          The eVisa system applies to Germany, and the source (visa.visitsaudi.com)
+          is correct.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"2.
+          Safety for Women Attending Alone","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          Correct and culturally appropriate.","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          It includes both safety assurance and a respectful reminder about modest
+          dress — perfectly aligned with your guidelines.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"3.
+          Bringing Snacks to the Match","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          Perfect fallback.","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Since this specific question wasn’t in the dataset, the model appropriately
+          responds with:","type":"text","version":1},{"type":"linebreak","version":1},{"detail":0,"format":2,"mode":"normal","style":"","text":"“I’m
+          sorry, I don’t have information on that…”","type":"text","version":1},{"type":"linebreak","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"This
+          shows it''s following the instruction not to hallucinate.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"4.
+          Best Airport for Jeddah Matches","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✔
+          Fully correct.","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          King Abdulaziz International Airport (JED) is the right answer, and the
+          phrasing is helpful and professional.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 709
+      height: 359
+      id: '1745369328125'
+      position:
+        x: 3270.963066100554
+        y: 512.9285714285714
+      positionAbsolute:
+        x: 3270.963066100554
+        y: 512.9285714285714
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 709
+    - data:
+        author: admin
+        desc: ''
+        height: 426
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"✅
+          ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"Perfect
+          — this is the ideal version of your answers!","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Here’s
+          a quick validation checklist for each one:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"1.
+          Media Personnel – Arrival & Parking","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✅
+          Correct:","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Precise location (eastern side, northeast corner), matches context.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"2.
+          Accessible Parking and Toilets","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✅
+          Correct:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"Accessible
+          parking:","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          151 spaces, distributed across all sides","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"Accessible
+          toilets:","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          28, near entrances and accessible seating","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":2},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Language
+          is clear, structured, and user-friendly.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":3}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"3.
+          Volunteer Center Location","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✅
+          Correct:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Location:
+          Southwestern side","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Nearby
+          facility: Commercial Affiliate Village","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":2},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Clear
+          and concise.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":3}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"4.
+          Stadium Nickname","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"✅
+          Correct:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"Nickname:","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          “The Shining Jewel”","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"Inspiration:","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          Distinctive geometric architecture","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":2},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"No
+          extra fluff — perfectly grounded.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":3}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 912
+      height: 426
+      id: '1745369384434'
+      position:
+        x: 3270.963066100554
+        y: 37.682435523210415
+      positionAbsolute:
+        x: 3270.963066100554
+        y: 37.682435523210415
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 912
+    - data:
+        dataset_ids:
+        - 7sdgxjqb5MfRi/85d9EyvNX/4hZly4trwGuxc6Pp7Mxmwo9+CRvaI3ojbzxa7ViS
+        desc: Allows you to query text content related to user questions from the
+          Knowledge
+        metadata_filtering_mode: disabled
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: ''
+            provider: ''
+          top_k: 4
+          weights:
+            keyword_setting:
+              keyword_weight: 0
+            vector_setting:
+              embedding_model_name: text-embedding-3-large
+              embedding_provider_name: langgenius/openai/openai
+              vector_weight: 1
+        query_variable_selector:
+        - '1711528914102'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        single_retrieval_config:
+          model:
+            completion_params:
+              frequency_penalty: 0
+              max_tokens: 512
+              presence_penalty: 0
+              temperature: 0
+              top_p: 1
+            mode: chat
+            name: gpt-3.5-turbo
+            provider: openai
+        title: Knowledge Retrieval Clube
+        type: knowledge-retrieval
+      height: 152
+      id: '17453695497670'
+      position:
+        x: 1937.997860451695
+        y: 879.6041303679507
+      positionAbsolute:
+        x: 1937.997860451695
+        y: 879.6041303679507
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        agent_parameters:
+          instruction:
+            type: constant
+            value: Search  {{#1745254640614.text#}} based on this date {{#1745530093157.text#}}in
+              the format %Y-%m-%d %H:%M:%S for the year 2025?
+          maximum_iterations:
+            type: constant
+            value: 2
+          model:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: gpt-4o
+              model_type: llm
+              provider: langgenius/openai/openai
+              type: model-selector
+          query:
+            type: constant
+            value: search
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: ''
+              parameters:
+                query:
+                  auto: 1
+                  value: null
+              provider_name: langgenius/google/google
+              schemas:
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: used for searching
+                  ja_JP: used for searching
+                  pt_BR: used for searching
+                  zh_Hans: 用于搜索网页内容
+                label:
+                  en_US: Query string
+                  ja_JP: Query string
+                  pt_BR: Query string
+                  zh_Hans: 查询语句
+                llm_description: key words for searching
+                max: null
+                min: null
+                name: query
+                options: []
+                placeholder: null
+                precision: null
+                required: true
+                scope: null
+                template: null
+                type: string
+              settings: {}
+              tool_label: GoogleSearch
+              tool_name: google_search
+              type: builtin
+            - enabled: true
+              extra:
+                description: Perform semantic search on the web using Exa's AI-powered
+                  search engine to find relevant web content and documents.
+              parameters:
+                end_published_date:
+                  auto: 1
+                  value: null
+                excludeText:
+                  auto: 1
+                  value: null
+                exclude_domains:
+                  auto: 1
+                  value: null
+                includeText:
+                  auto: 1
+                  value: null
+                include_domains:
+                  auto: 1
+                  value: null
+                query:
+                  auto: 1
+                  value: null
+                start_published_date:
+                  auto: 1
+                  value: null
+              provider_name: yevanchen/exa/exa
+              schemas:
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: The search query you want to perform using Exa's search engine.
+                  ja_JP: Exa の検索エンジンを使用して実行したい検索クエリ。
+                  pt_BR: A consulta de pesquisa que você deseja realizar usando o
+                    mecanismo de busca da Exa.
+                  zh_Hans: 您想使用 Exa 搜索引擎执行的搜索查询。
+                label:
+                  en_US: Search query
+                  ja_JP: 検索クエリ
+                  pt_BR: Consulta de pesquisa
+                  zh_Hans: 搜索查询
+                llm_description: The search query to find relevant information on
+                  the web.
+                max: null
+                min: null
+                name: query
+                options: []
+                placeholder: null
+                precision: null
+                required: true
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: neural
+                form: form
+                human_description:
+                  en_US: The type of search to perform - neural (semantic), keyword
+                    (traditional), or auto.
+                  ja_JP: 実行する検索のタイプ - ニューラル（意味的），キーワード（従来型），または自動。
+                  pt_BR: O tipo de pesquisa a ser realizada - neural (semântica),
+                    por palavra-chave (tradicional), ou auto.
+                  zh_Hans: 要执行的搜索类型 - 神经（语义），关键词（传统），或自动。
+                label:
+                  en_US: Search Type
+                  ja_JP: 検索タイプ
+                  pt_BR: Tipo de pesquisa
+                  zh_Hans: 搜索类型
+                llm_description: The type of search to perform - neural uses advanced
+                  AI for semantic understanding, keyword uses traditional search techniques,
+                  and auto dynamically selects the best approach.
+                max: null
+                min: null
+                name: search_type
+                options:
+                - label:
+                    en_US: Neural
+                    ja_JP: ニューラル
+                    pt_BR: Neural
+                    zh_Hans: 神经
+                  value: neural
+                - label:
+                    en_US: Keyword
+                    ja_JP: キーワード
+                    pt_BR: Palavra-chave
+                    zh_Hans: 关键词
+                  value: keyword
+                - label:
+                    en_US: Auto
+                    ja_JP: 自動
+                    pt_BR: Auto
+                    zh_Hans: 自动
+                  value: auto
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: select
+              - auto_generate: null
+                default: 10
+                form: form
+                human_description:
+                  en_US: The maximum number of search results to return (from 1 to
+                    100).
+                  ja_JP: 返す検索結果の最大数（1〜100）。
+                  pt_BR: O número máximo de resultados de pesquisa a serem retornados
+                    (de 1 a 100).
+                  zh_Hans: 要返回的最大搜索结果数（从1到100）。
+                label:
+                  en_US: Number of Results
+                  ja_JP: 結果数
+                  pt_BR: Número de resultados
+                  zh_Hans: 结果数量
+                llm_description: The maximum number of search results to return, ranging
+                  from 1 to 100.
+                max: 100
+                min: 1
+                name: num_results
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: number
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: A comma-separated list of domains to specifically include
+                    in the search results.
+                  ja_JP: 検索結果に特に含めるドメインのカンマ区切りリスト。
+                  pt_BR: Uma lista separada por vírgulas de domínios para incluir
+                    especificamente nos resultados da pesquisa.
+                  zh_Hans: 要在搜索结果中特别包含的域名的逗号分隔列表。
+                label:
+                  en_US: Include Domains
+                  ja_JP: 含めるドメイン
+                  pt_BR: Incluir domínios
+                  zh_Hans: 包含域名
+                llm_description: A comma-separated list of domains to specifically
+                  include in the search results.
+                max: null
+                min: null
+                name: include_domains
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: A comma-separated list of domains to specifically exclude
+                    from the search results.
+                  ja_JP: 検索結果から特に除外するドメインのカンマ区切りリスト。
+                  pt_BR: Uma lista separada por vírgulas de domínios para excluir
+                    especificamente dos resultados da pesquisa.
+                  zh_Hans: 要从搜索结果中特别排除的域名的逗号分隔列表。
+                label:
+                  en_US: Exclude Domains
+                  ja_JP: 除外するドメイン
+                  pt_BR: Excluir domínios
+                  zh_Hans: 排除域名
+                llm_description: A comma-separated list of domains to specifically
+                  exclude from the search results.
+                max: null
+                min: null
+                name: exclude_domains
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: Only include results published after this date (YYYY-MM-DD
+                    format).
+                  ja_JP: この日付以降に公開された結果のみを含める（YYYY-MM-DD形式）。
+                  pt_BR: Incluir apenas resultados publicados após esta data (formato
+                    AAAA-MM-DD).
+                  zh_Hans: 仅包含在此日期之后发布的结果（YYYY-MM-DD 格式）。
+                label:
+                  en_US: Start Published Date
+                  ja_JP: 公開開始日
+                  pt_BR: Data de publicação inicial
+                  zh_Hans: 开始发布日期
+                llm_description: Only include results published after this date in
+                  YYYY-MM-DD format.
+                max: null
+                min: null
+                name: start_published_date
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: Only include results published before this date (YYYY-MM-DD
+                    format).
+                  ja_JP: この日付以前に公開された結果のみを含める（YYYY-MM-DD形式）。
+                  pt_BR: Incluir apenas resultados publicados antes desta data (formato
+                    AAAA-MM-DD).
+                  zh_Hans: 仅包含在此日期之前发布的结果（YYYY-MM-DD 格式）。
+                label:
+                  en_US: End Published Date
+                  ja_JP: 公開終了日
+                  pt_BR: Data de publicação final
+                  zh_Hans: 结束发布日期
+                llm_description: Only include results published before this date in
+                  YYYY-MM-DD format.
+                max: null
+                min: null
+                name: end_published_date
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: 1
+                form: form
+                human_description:
+                  en_US: Whether to use Exa's prompt engineering to improve the query.
+                  ja_JP: Exaのプロンプトエンジニングを使用してクエリを改善するかどうか。
+                  pt_BR: Se deve usar a engenharia de prompt da Exa para melhorar
+                    a consulta.
+                  zh_Hans: 是否使用 Exa 的提示工程来改进查询。
+                label:
+                  en_US: Use Autoprompt
+                  ja_JP: 自動プロンプトを使用
+                  pt_BR: Usar Autoprompt
+                  zh_Hans: 使用自动提示
+                llm_description: Whether to use Exa's prompt engineering to improve
+                  the query. When true, Exa will automatically rewrite the query to
+                  improve search results.
+                max: null
+                min: null
+                name: use_autoprompt
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: boolean
+              - auto_generate: null
+                default: 0
+                form: form
+                human_description:
+                  en_US: Whether to include the text contents from each search result.
+                  ja_JP: 各検索結果からテキスト内容を含めるかどうか。
+                  pt_BR: Se deve incluir o conteúdo de texto de cada resultado da
+                    pesquisa.
+                  zh_Hans: 是否包含每个搜索结果的文本内容。
+                label:
+                  en_US: Include Text Contents
+                  ja_JP: テキスト内容を含める
+                  pt_BR: Incluir conteúdo de texto
+                  zh_Hans: 包含文本内容
+                llm_description: Whether to include the text contents from each search
+                  result. When true, the response will include the text content of
+                  each webpage.
+                max: null
+                min: null
+                name: text_contents
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: boolean
+              - auto_generate: null
+                default: 0
+                form: form
+                human_description:
+                  en_US: Whether to highlight relevant text snippets in the search
+                    results.
+                  ja_JP: 検索結果内の関連テキスト部分をハイライトするかどうか。
+                  pt_BR: Se deve destacar trechos de texto relevantes nos resultados
+                    da pesquisa.
+                  zh_Hans: 是否在搜索结果中高亮显示相关文本片段。
+                label:
+                  en_US: Highlight Results
+                  ja_JP: 結果をハイライト
+                  pt_BR: Destacar resultados
+                  zh_Hans: 高亮结果
+                llm_description: Whether to highlight relevant text snippets in the
+                  search results. When true, relevant sections of text will be highlighted.
+                max: null
+                min: null
+                name: highlight_results
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: boolean
+              - auto_generate: null
+                default: null
+                form: form
+                human_description:
+                  en_US: A data category to focus on.
+                  ja_JP: 集中するデータのカテゴリ。
+                  pt_BR: Uma categoria de dados para se concentrar.
+                  zh_Hans: 要集中的数据类别。
+                label:
+                  en_US: Category
+                  ja_JP: カテゴリ
+                  pt_BR: Categoria
+                  zh_Hans: 类别
+                llm_description: A data category to focus on.
+                max: null
+                min: null
+                name: category
+                options:
+                - label:
+                    en_US: Company
+                    ja_JP: 会社
+                    pt_BR: Empresa
+                    zh_Hans: 公司
+                  value: company
+                - label:
+                    en_US: Research Paper
+                    ja_JP: 研究論文
+                    pt_BR: Artigo de Pesquisa
+                    zh_Hans: 研究论文
+                  value: research paper
+                - label:
+                    en_US: News
+                    ja_JP: ニュース
+                    pt_BR: Notícias
+                    zh_Hans: 新闻
+                  value: news
+                - label:
+                    en_US: PDF
+                    ja_JP: PDF
+                    pt_BR: PDF
+                    zh_Hans: PDF
+                  value: pdf
+                - label:
+                    en_US: GitHub
+                    ja_JP: GitHub
+                    pt_BR: GitHub
+                    zh_Hans: GitHub
+                  value: github
+                - label:
+                    en_US: Tweet
+                    ja_JP: ツイート
+                    pt_BR: Tuite
+                    zh_Hans: 推文
+                  value: tweet
+                - label:
+                    en_US: Personal Site
+                    ja_JP: 個人サイト
+                    pt_BR: Site Pessoal
+                    zh_Hans: 个人网站
+                  value: personal site
+                - label:
+                    en_US: LinkedIn Profile
+                    ja_JP: LinkedInプロファイル
+                    pt_BR: Perfil do LinkedIn
+                    zh_Hans: LinkedIn 个人主页
+                  value: linkedin profile
+                - label:
+                    en_US: Financial Report
+                    ja_JP: 財務報告
+                    pt_BR: Relatório Financeiro
+                    zh_Hans: 财务报告
+                  value: financial report
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: select
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: List of strings that must be present in webpage text of results.
+                    Currently, only 1 string is supported, of up to 5 words.
+                  ja_JP: 結果のウェブページテキストに存在する必要がある文字列のリスト。現在、最大5単語の1つの文字列のみがサポートされています。
+                  pt_BR: Lista de strings que devem estar presentes no texto da página
+                    dos resultados. Atualmente, apenas 1 string é suportada, de até
+                    5 palavras.
+                  zh_Hans: 必须出现在结果的网页文本中的字符串列表。目前，只支持1个字符串，最多5个单词。
+                label:
+                  en_US: Include Text
+                  ja_JP: テキストを含める
+                  pt_BR: Incluir Texto
+                  zh_Hans: 包含文本
+                llm_description: List of strings that must be present in webpage text
+                  of results. Currently, only 1 string is supported, of up to 5 words.
+                max: null
+                min: null
+                name: includeText
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: List of strings that must not be present in webpage text
+                    of results. Currently, only 1 string is supported, of up to 5
+                    words.
+                  ja_JP: 結果のウェブページテキストに存在してはならない文字列のリスト。現在、最大5単語の1つの文字列のみがサポートされています。
+                  pt_BR: Lista de strings que não devem estar presentes no texto da
+                    página dos resultados. Atualmente, apenas 1 string é suportada,
+                    de até 5 palavras.
+                  zh_Hans: 不能出现在结果的网页文本中的字符串列表。目前，只支持1个字符串，最多5个单词。
+                label:
+                  en_US: Exclude Text
+                  ja_JP: テキストを除外
+                  pt_BR: Excluir Texto
+                  zh_Hans: 排除文本
+                llm_description: List of strings that must not be present in webpage
+                  text of results. Currently, only 1 string is supported, of up to
+                  5 words.
+                max: null
+                min: null
+                name: excludeText
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              settings:
+                category:
+                  value: null
+                highlight_results:
+                  value: 0
+                num_results:
+                  value: 10
+                search_type:
+                  value: neural
+                text_contents:
+                  value: 0
+                use_autoprompt:
+                  value: 1
+              tool_description: Perform semantic search on the web using Exa's AI-powered
+                search engine to find relevant web content and documents.
+              tool_label: Exa Search
+              tool_name: exa_search
+              type: builtin
+        agent_strategy_label: ReAct
+        agent_strategy_name: ReAct
+        agent_strategy_provider_name: langgenius/agent/agent
+        desc: ''
+        output_schema: null
+        plugin_unique_identifier: langgenius/agent:0.0.14@26958a0e80a10655ce73812bdb7c35a66ce7b16f5ac346d298bda17ff85efd1e
+        selected: false
+        title: Agent
+        type: agent
+      height: 198
+      id: '1745464519515'
+      position:
+        x: 1556.8118346433903
+        y: 180.15501488081117
+      positionAbsolute:
+        x: 1556.8118346433903
+        y: 180.15501488081117
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        advanced_settings:
+          group_enabled: true
+          groups:
+          - groupId: 9a62307d-7303-4e11-b3d7-5697e464aa41
+            group_name: Group1
+            output_type: string
+            variables:
+            - - '1745466321408'
+              - output
+          - groupId: cfd07d91-d524-4334-ab7e-3c1f42061026
+            group_name: Group2
+            output_type: array[object]
+            variables:
+            - - '17453695497670'
+              - result
+            - - '17453691446670'
+              - result
+            - - '17454949957150'
+              - result
+            - - '1711528915811'
+              - result
+          - groupId: b0575835-7a20-4afd-ad46-7ba75e81a981
+            group_name: Group3
+            output_type: string
+            variables:
+            - - '1745522986136'
+              - output
+        desc: ''
+        output_type: string
+        selected: false
+        title: Variable Aggregator
+        type: variable-aggregator
+        variables:
+        - - '1745466321408'
+          - output
+      height: 281
+      id: '1745465671762'
+      position:
+        x: 2328.531673276249
+        y: 588.2414851148011
+      positionAbsolute:
+        x: 2328.531673276249
+        y: 588.2414851148011
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "{\r\n  \"message\": \"{{ arg1 }}\"\r\n}"
+        title: Template agent
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1745464519515'
+          - text
+          variable: arg1
+      height: 54
+      id: '1745466321408'
+      position:
+        x: 1937.997860451695
+        y: 588.2414851148011
+      positionAbsolute:
+        x: 1937.997860451695
+        y: 588.2414851148011
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 80/QWiCRyZwzUU+HAR4zYPwxs3GAXqPImRHwURSbjRLwyGEJSwmJnlv6zaO+44QT
+        desc: Allows you to query text content related to user questions from the
+          Knowledge
+        metadata_filtering_mode: disabled
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: ''
+            provider: ''
+          top_k: 4
+          weights:
+            keyword_setting:
+              keyword_weight: 0
+            vector_setting:
+              embedding_model_name: text-embedding-3-large
+              embedding_provider_name: langgenius/openai/openai
+              vector_weight: 1
+        query_variable_selector:
+        - '1711528914102'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        single_retrieval_config:
+          model:
+            completion_params:
+              frequency_penalty: 0
+              max_tokens: 512
+              presence_penalty: 0
+              temperature: 0
+              top_p: 1
+            mode: chat
+            name: gpt-3.5-turbo
+            provider: openai
+        title: Knowledge Retrieval Fahad Stadium
+        type: knowledge-retrieval
+      height: 152
+      id: '17454949957150'
+      position:
+        x: 1937.997860451695
+        y: 205.94307206409985
+      positionAbsolute:
+        x: 1937.997860451695
+        y: 205.94307206409985
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: Hello, this is Midan Chat. Please provide the stadium name and your
+          seat number for the event you plan to attend.
+        desc: ''
+        selected: false
+        title: Answer 6
+        type: answer
+        variables: []
+      height: 150
+      id: '1745519622793'
+      position:
+        x: 419.7727248502979
+        y: 449.1173250236411
+      positionAbsolute:
+        x: 419.7727248502979
+        y: 449.1173250236411
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "{\n  \"User massage\": \"{{ arg4 }}\"\n}"
+        title: Template User Massage
+        type: template-transform
+        variables:
+        - value_selector:
+          - sys
+          - query
+          variable: arg4
+      height: 54
+      id: '1745522986136'
+      position:
+        x: 1937.997860451695
+        y: 98.46794770625294
+      positionAbsolute:
+        x: 1937.997860451695
+        y: 98.46794770625294
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 608f051d-b5fa-4181-9c71-2219ebbf4708
+            value: ''
+            varType: string
+            variable_selector:
+            - '1745246798936'
+            - class_name
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: IF/ELSE
+        type: if-else
+      height: 126
+      id: '1745526552920'
+      position:
+        x: 1556.8118346433903
+        y: 414.4459098740913
+      positionAbsolute:
+        x: 1556.8118346433903
+        y: 414.4459098740913
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        advanced_settings:
+          group_enabled: true
+          groups:
+          - groupId: f704096a-2045-45be-b1a3-0f97c4389708
+            group_name: Group1
+            output_type: string
+            variables:
+            - - '1745530093157'
+              - text
+          - groupId: 5a268b15-6c46-46c0-a182-33a228f23ff2
+            group_name: Group2
+            output_type: string
+            variables:
+            - - '1745254640614'
+              - text
+        desc: ''
+        output_type: string
+        selected: false
+        title: Variable Aggregator 2
+        type: variable-aggregator
+        variables:
+        - - '1745528785714'
+          - text
+      height: 162
+      id: '1745528936079'
+      position:
+        x: 1271.4691323389532
+        y: 180.15501488081117
+      positionAbsolute:
+        x: 1271.4691323389532
+        y: 180.15501488081117
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        items: []
+        selected: false
+        title: Variable Assigner
+        type: assigner
+        version: '2'
+      height: 86
+      id: '1745529205276'
+      position:
+        x: 953.6540830870097
+        y: 180.15501488081117
+      positionAbsolute:
+        x: 953.6540830870097
+        y: 180.15501488081117
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: '%Y-%m-%d %H:%M:%S'
+          form: form
+          human_description:
+            en_US: Time format in strftime standard.
+            ja_JP: Time format in strftime standard.
+            pt_BR: Time format in strftime standard.
+            zh_Hans: strftime 标准的时间格式。
+          label:
+            en_US: Format
+            ja_JP: Format
+            pt_BR: Format
+            zh_Hans: 格式
+          llm_description: null
+          max: null
+          min: null
+          name: format
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: UTC
+          form: form
+          human_description:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          label:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          llm_description: null
+          max: null
+          min: null
+          name: timezone
+          options:
+          - label:
+              en_US: UTC
+              ja_JP: UTC
+              pt_BR: UTC
+              zh_Hans: UTC
+            value: UTC
+          - label:
+              en_US: America/New_York
+              ja_JP: America/New_York
+              pt_BR: America/New_York
+              zh_Hans: 美洲/纽约
+            value: America/New_York
+          - label:
+              en_US: America/Los_Angeles
+              ja_JP: America/Los_Angeles
+              pt_BR: America/Los_Angeles
+              zh_Hans: 美洲/洛杉矶
+            value: America/Los_Angeles
+          - label:
+              en_US: America/Chicago
+              ja_JP: America/Chicago
+              pt_BR: America/Chicago
+              zh_Hans: 美洲/芝加哥
+            value: America/Chicago
+          - label:
+              en_US: America/Sao_Paulo
+              ja_JP: America/Sao_Paulo
+              pt_BR: América/São Paulo
+              zh_Hans: 美洲/圣保罗
+            value: America/Sao_Paulo
+          - label:
+              en_US: Asia/Shanghai
+              ja_JP: Asia/Shanghai
+              pt_BR: Asia/Shanghai
+              zh_Hans: 亚洲/上海
+            value: Asia/Shanghai
+          - label:
+              en_US: Asia/Ho_Chi_Minh
+              ja_JP: Asia/Ho_Chi_Minh
+              pt_BR: Ásia/Ho Chi Minh
+              zh_Hans: 亚洲/胡志明市
+            value: Asia/Ho_Chi_Minh
+          - label:
+              en_US: Asia/Tokyo
+              ja_JP: Asia/Tokyo
+              pt_BR: Asia/Tokyo
+              zh_Hans: 亚洲/东京
+            value: Asia/Tokyo
+          - label:
+              en_US: Asia/Dubai
+              ja_JP: Asia/Dubai
+              pt_BR: Asia/Dubai
+              zh_Hans: 亚洲/迪拜
+            value: Asia/Dubai
+          - label:
+              en_US: Asia/Kolkata
+              ja_JP: Asia/Kolkata
+              pt_BR: Asia/Kolkata
+              zh_Hans: 亚洲/加尔各答
+            value: Asia/Kolkata
+          - label:
+              en_US: Asia/Seoul
+              ja_JP: Asia/Seoul
+              pt_BR: Asia/Seoul
+              zh_Hans: 亚洲/首尔
+            value: Asia/Seoul
+          - label:
+              en_US: Asia/Singapore
+              ja_JP: Asia/Singapore
+              pt_BR: Asia/Singapore
+              zh_Hans: 亚洲/新加坡
+            value: Asia/Singapore
+          - label:
+              en_US: Europe/London
+              ja_JP: Europe/London
+              pt_BR: Europe/London
+              zh_Hans: 欧洲/伦敦
+            value: Europe/London
+          - label:
+              en_US: Europe/Berlin
+              ja_JP: Europe/Berlin
+              pt_BR: Europe/Berlin
+              zh_Hans: 欧洲/柏林
+            value: Europe/Berlin
+          - label:
+              en_US: Europe/Moscow
+              ja_JP: Europe/Moscow
+              pt_BR: Europe/Moscow
+              zh_Hans: 欧洲/莫斯科
+            value: Europe/Moscow
+          - label:
+              en_US: Australia/Sydney
+              ja_JP: Australia/Sydney
+              pt_BR: Australia/Sydney
+              zh_Hans: 澳大利亚/悉尼
+            value: Australia/Sydney
+          - label:
+              en_US: Pacific/Auckland
+              ja_JP: Pacific/Auckland
+              pt_BR: Pacific/Auckland
+              zh_Hans: 太平洋/奥克兰
+            value: Pacific/Auckland
+          - label:
+              en_US: Africa/Cairo
+              ja_JP: Africa/Cairo
+              pt_BR: Africa/Cairo
+              zh_Hans: 非洲/开罗
+            value: Africa/Cairo
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          format: ''
+          timezone: ''
+        provider_id: time
+        provider_name: time
+        provider_type: builtin
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 1000
+        selected: false
+        title: Current Time
+        tool_configurations:
+          format: '%Y-%m-%d %H:%M:%S'
+          timezone: Asia/Dubai
+        tool_description: A tool for getting the current time.
+        tool_label: Current Time
+        tool_name: current_time
+        tool_parameters: {}
+        type: tool
+      height: 116
+      id: '1745530093157'
+      position:
+        x: 1271.4691323389532
+        y: 37.682435523210415
+      positionAbsolute:
+        x: 1271.4691323389532
+        y: 37.682435523210415
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: 'accesskey:dCvJO0SdfU
+
+          secretkey:7yg8hyhzg1bymNSVpCs4
+
+          placeid:saudi-arabia/riyadh
+
+          version:3
+
+          prettyprint:1'
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP Request
+        type: http-request
+        url: https://api.xmltime.com/timeservice
+        variables: []
+      height: 139
+      id: '1745532970036'
+      position:
+        x: 1271.4691323389532
+        y: -151.14908909853563
+      positionAbsolute:
+        x: 1271.4691323389532
+        y: -151.14908909853563
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -20.928884584649325
+      y: 185.82635742735857
+      zoom: 0.3176699273775647
