@@ -19,12 +19,13 @@ const LanguageSwitcher: React.FC<{ className?: string }> = ({ className = "" }) 
           variant="outline"
           size="sm"
           className={`flex items-center gap-1 ${language === "ar" ? "font-[IBM Plex Sans Arabic]" : ""} ${className}`}
-          aria-label="Select language"
+          aria-label="Select language" // Consider adding translations here too if needed
         >
           <Globe size={16} />
           <span>
+            {/* Re-add Spanish option */}
             {language === "en" ? "English" : 
-             language === "ar" ? "العربية" : "Español"}
+             language === "ar" ? "العربية" : "Español"} 
           </span>
         </Button>
       </DropdownMenuTrigger>
@@ -35,7 +36,8 @@ const LanguageSwitcher: React.FC<{ className?: string }> = ({ className = "" }) 
         <DropdownMenuItem onClick={() => setLanguage("ar")}>
           العربية
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setLanguage("es")}>
+        {/* Re-add Spanish menu item */}
+        <DropdownMenuItem onClick={() => setLanguage("es")}> 
           Español
         </DropdownMenuItem>
       </DropdownMenuContent>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EmergencyOverlay from "../components/emergency/EmergencyOverlay";
 import EmergencyFAB from "../components/emergency/EmergencyFAB";
 import Header from "../components/layout/Header";
@@ -354,7 +354,7 @@ const StadiumNavigation: React.FC<{ selectedGame: Game; seatInfo: { section: str
 };
 
 const Index: React.FC = () => {
-  const { setLanguage } = useAppContext();
+  const { setLanguage, language } = useAppContext(); 
   const [langSelected, setLangSelected] = useState(false);
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
   const [seatInfo, setSeatInfo] = useState<{ section: string; row: string; seatNumber: string }>({
@@ -364,7 +364,17 @@ const Index: React.FC = () => {
   });
   const [seatDone, setSeatDone] = useState(false);
 
-  const handleLanguageSelect = (lang: 'en' | 'ar' | 'es') => {
+  const languages = ["", " ", " "]; 
+  const [currentLangIndex, setCurrentLangIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentLangIndex((prevIndex) => (prevIndex + 1) % languages.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleLanguageSelect = (lang: 'en' | 'ar' | 'es') => { 
     setLanguage(lang);
     setLangSelected(true);
   };
@@ -378,35 +388,62 @@ const Index: React.FC = () => {
     setSeatDone(true);
   };
 
+  const getText = (en: string, ar: string, es: string) => {
+    if (language === "en") return en;
+    if (language === "ar") return ar;
+    if (language === "es") return es;
+    return en; 
+  };
+
   if (!langSelected) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-background">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-800 dark:via-gray-900 dark:to-black p-4">
         <img 
           src="/midan-logo.png" 
           alt="Midan - Stadium Assistant" 
           className="w-48 mb-8 object-contain" 
         />
-        <h1 className="text-3xl font-bold mb-6">Select Language / اختر اللغة / Seleccione Idioma</h1>
-        <div className="flex flex-wrap gap-4 justify-center">
-          <button
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        <motion.h1 
+          key={currentLangIndex} 
+          className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-800 dark:text-gray-200"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {languages[currentLangIndex]}
+        </motion.h1>
+        <motion.div 
+          className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 text-lg font-semibold"
             onClick={() => handleLanguageSelect('en')}
           >
             English
-          </button>
-          <button
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 bg-green-600 text-white rounded-full shadow-lg hover:bg-green-700 transition-all duration-300 text-lg font-semibold"
             onClick={() => handleLanguageSelect('ar')}
           >
             العربية
-          </button>
-          <button
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 bg-red-600 text-white rounded-full shadow-lg hover:bg-red-700 transition-all duration-300 text-lg font-semibold" 
             onClick={() => handleLanguageSelect('es')}
           >
             Español
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
     );
   }
