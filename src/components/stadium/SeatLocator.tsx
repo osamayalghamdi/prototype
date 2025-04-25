@@ -10,10 +10,18 @@ interface SeatLocatorProps {
 }
 
 const SeatLocator: React.FC<SeatLocatorProps> = ({ onLocate }) => {
-  const { language } = useAppContext();
+  const { language } = useAppContext(); // Get language from context
   const [section, setSection] = useState("");
   const [row, setRow] = useState("");
   const [seatNumber, setSeatNumber] = useState("");
+
+  // Define the getText helper function locally within this component
+  const getText = (en: string, ar: string, es: string) => {
+    if (language === "en") return en;
+    if (language === "ar") return ar;
+    if (language === "es") return es;
+    return en; // Default to English
+  };
   
   const handleLocate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,18 +35,21 @@ const SeatLocator: React.FC<SeatLocatorProps> = ({ onLocate }) => {
         <div className="bg-gradient-to-r from-stadium-primary to-stadium-primary/50 p-4">
           <h2 className="text-lg font-semibold text-white text-center flex items-center justify-center">
             <MapPin className="mr-2" />
-            {language === "en" ? "Find Your Seat" : "ابحث عن مقعدك"}
+            {/* Use getText for title */}
+            {getText("Find Your Seat", "ابحث عن مقعدك", "Encuentra Tu Asiento")}
           </h2>
         </div>
         
         <form onSubmit={handleLocate} className="p-6 space-y-5">
           <div className="space-y-2">
             <Label htmlFor="section">
-              {language === "en" ? "Section" : "القسم"}
+              {/* Use getText for label */}
+              {getText("Section", "القسم", "Sección")}
             </Label>
             <Input
               id="section"
-              placeholder={language === "en" ? "e.g. A, B, C" : "مثال: أ، ب، ج"}
+              // Use getText for placeholder
+              placeholder={getText("e.g. A, B, C", "مثال: أ، ب، ج", "ej. A, B, C")}
               value={section}
               onChange={(e) => setSection(e.target.value)}
               className="border-stadium-primary/40 focus-visible:ring-2 focus-visible:ring-stadium-primary focus:outline-none"
@@ -47,11 +58,13 @@ const SeatLocator: React.FC<SeatLocatorProps> = ({ onLocate }) => {
           
           <div className="space-y-2">
             <Label htmlFor="row">
-              {language === "en" ? "Row" : "الصف"}
+              {/* Use getText for label */}
+              {getText("Row", "الصف", "Fila")}
             </Label>
             <Input
               id="row"
-              placeholder={language === "en" ? "e.g. 1, 2, 3" : "مثال: ١، ٢، ٣"}
+              // Use getText for placeholder
+              placeholder={getText("e.g. 1, 2, 3", "مثال: ١، ٢، ٣", "ej. 1, 2, 3")}
               value={row}
               onChange={(e) => setRow(e.target.value)}
               className="border-stadium-primary/40 focus-visible:ring-2 focus-visible:ring-stadium-primary focus:outline-none"
@@ -60,11 +73,13 @@ const SeatLocator: React.FC<SeatLocatorProps> = ({ onLocate }) => {
           
           <div className="space-y-2">
             <Label htmlFor="seatNumber">
-              {language === "en" ? "Seat Number" : "رقم المقعد"}
+              {/* Use getText for label */}
+              {getText("Seat Number", "رقم المقعد", "Número de Asiento")}
             </Label>
             <Input
               id="seatNumber"
-              placeholder={language === "en" ? "e.g. 15" : "مثال: ١٥"}
+              // Use getText for placeholder
+              placeholder={getText("e.g. 15", "مثال: ١٥", "ej. 15")}
               value={seatNumber}
               onChange={(e) => setSeatNumber(e.target.value)}
               className="border-stadium-primary/40 focus-visible:ring-2 focus-visible:ring-stadium-primary focus:outline-none"
@@ -75,7 +90,8 @@ const SeatLocator: React.FC<SeatLocatorProps> = ({ onLocate }) => {
             type="submit"
             className="w-full bg-gradient-to-r from-stadium-primary to-stadium-primary/60 hover:from-stadium-primary/80 hover:to-stadium-primary/80 text-white font-medium rounded-lg py-2 transition"
           >
-            {language === "en" ? "Locate My Seat" : "حدد مقعدي"}
+            {/* Use getText for button text */}
+            {getText("Locate My Seat", "حدد مقعدي", "Localizar Mi Asiento")}
           </Button>
           {/* Optional skip seat selection */}
           <div className="text-center mt-3">
@@ -84,7 +100,8 @@ const SeatLocator: React.FC<SeatLocatorProps> = ({ onLocate }) => {
               onClick={() => onLocate({ section: "", row: "", seatNumber: "" })}
               className="text-sm text-stadium-primary hover:text-stadium-primary/80 underline"
             >
-              {language === "en" ? "Skip seat selection" : "تخطي اختيار المقعد"}
+              {/* Use getText for skip button text */}
+              {getText("Skip seat selection", "تخطي اختيار المقعد", "Omitir selección de asiento")}
             </button>
           </div>
         </form>
