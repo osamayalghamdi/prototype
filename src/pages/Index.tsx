@@ -35,7 +35,7 @@ import { difyConfig } from "../config/difyConfig";
 // Map stadium names to public image URLs
 const stadiumImages: Record<string, string> = {
   "King Fahd Stadium": "/al-thumama-stadium.png",
-  "King Abdullah Sports City": "/123.jpg",
+  "King Abdullah Sports City": "/123.png",
   "Prince Faisal bin Fahd Stadium": "/placeholder.png",
 };
 
