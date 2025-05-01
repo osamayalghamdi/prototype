@@ -43,19 +43,6 @@ npm install
 npm run dev
 ```
 
-*Note: Ensure your Dify instance is running and configured. You may need to set environment variables in the Midan project to connect to your Dify application's API.*
-
-## Deployment
-
-To deploy Midan, deploy the frontend application using your preferred hosting service. Ensure that all environment variables (like Dify API keys and endpoints) and configurations are set up correctly for production.
-
-## Custom Domain
-
-You can connect a custom domain to your Midan frontend project by configuring your DNS settings with your domain provider. Follow the hosting service's instructions for setting up a custom domain.
-
-## Contributing
-
-We welcome contributions to Midan! If you have ideas for new features or improvements, feel free to open an issue or submit a pull request.
 
 ## License
 
