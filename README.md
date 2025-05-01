@@ -14,9 +14,8 @@ Midan is an innovative AI-powered assistant designed to enhance the experience o
 
 ## AI Workflow
 
-```markdown
-![AI Workflow Diagram](image/AI_RAG_workflow.png)
-```
+<img width="1625" alt="Midan" src="https://github.com/user-attachments/assets/f3fa6975-0bf5-4c56-83fb-50734bab582e" />
+
 
 ## Technologies Used
 
