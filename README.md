@@ -16,6 +16,9 @@ Midan is an innovative AI-powered assistant designed to enhance the experience o
 
 <img width="1625" alt="Midan" src="https://github.com/user-attachments/assets/f3fa6975-0bf5-4c56-83fb-50734bab582e" />
 
+## user interface
+
+<img width="1363" alt="Midan UI" src="https://github.com/user-attachments/assets/4d526c8e-aa92-4f50-9183-622bcfe577d6" />
 
 ## Technologies Used
 
